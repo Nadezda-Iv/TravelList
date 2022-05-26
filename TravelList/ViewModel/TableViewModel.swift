@@ -25,13 +25,13 @@ class TableViewModel: TableViewViewModelType {
         return TableViewCellViewModel(route: profile)
     }
     
-    func viewModelForSelectedRow() -> CollectionViewModelType? {
-       // guard let selectedIndexPath = selectedIndexPath else { return nil }
-        //return DetailViewModel(profile: profiles[selectedIndexPath.row])
+    func viewModelForSelectedRow() -> DetailRoutePlanningViewModelType? {
+       guard let selectedIndexPath = selectedIndexPath else { return nil }
+        return DetailRoutePlanningViewModelType(nameRoute: profiles[selectedIndexPath.row])
     }
     
     func selectRow(atIndexPath indexPath: IndexPath) {
-        
+        self.selectedIndexPath = indexPath
     }
     
     

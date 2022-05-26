@@ -5,9 +5,16 @@
 //  Created by NADEZDA IVANOVA on 23.05.2022.
 //
 
-import Foundation
 import UIKit
 
 class RoutePlanningCollectionViewController: UIViewController {
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .cyan
+        
+        print("io")
+    }
     
 }

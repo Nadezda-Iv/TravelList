@@ -15,10 +15,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
+        let navController = UINavigationController()
         let home = CustomViewController()
-        self.window?.rootViewController = home
+        navController.viewControllers = [home]
+        self.window?.rootViewController = navController
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene
+        
+        
+        /*
+         let nav1 = UINavigationController()
+            let mainView = ViewController(nibName: nil, bundle: nil) //ViewController = Name of your controller
+            nav1.viewControllers = [mainView]
+            self.window!.rootViewController = nav1
+            self.window?.makeKeyAndVisible()
+         */
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

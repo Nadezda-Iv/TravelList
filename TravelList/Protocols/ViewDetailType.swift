@@ -9,6 +9,6 @@ import Foundation
 import UIKit
 
 protocol ViewDetailType {
-    var namePage: String {get}
-    var view: UIView {get}
+    var namePage: Route {get}
+  
 }
