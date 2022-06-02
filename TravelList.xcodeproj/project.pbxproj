@@ -19,6 +19,7 @@
 		A3792D23281FF9DE00BB8ADD /* ModelRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3792D22281FF9DE00BB8ADD /* ModelRoute.swift */; };
 		A38F4299283BB97B000A50B9 /* RoutePlanningCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F4298283BB97B000A50B9 /* RoutePlanningCollectionViewController.swift */; };
 		A38F429C283BBE98000A50B9 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F429B283BBE98000A50B9 /* TableViewModel.swift */; };
+		A39A8B9E2848A83E001584D9 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39A8B9D2848A83E001584D9 /* File.swift */; };
 		A3A85F4828252AED002D91F8 /* CollectionViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A85F4728252AED002D91F8 /* CollectionViewModelType.swift */; };
 		A3A85F4A28252E77002D91F8 /* CollectionViewCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A85F4928252E77002D91F8 /* CollectionViewCellViewModelType.swift */; };
 		A3A85F4C28253406002D91F8 /* ViewDetailType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A85F4B28253406002D91F8 /* ViewDetailType.swift */; };
@@ -64,6 +65,7 @@
 		A3792D22281FF9DE00BB8ADD /* ModelRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRoute.swift; sourceTree = "<group>"; };
 		A38F4298283BB97B000A50B9 /* RoutePlanningCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePlanningCollectionViewController.swift; sourceTree = "<group>"; };
 		A38F429B283BBE98000A50B9 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
+		A39A8B9D2848A83E001584D9 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		A3A85F4728252AED002D91F8 /* CollectionViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModelType.swift; sourceTree = "<group>"; };
 		A3A85F4928252E77002D91F8 /* CollectionViewCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellViewModelType.swift; sourceTree = "<group>"; };
 		A3A85F4B28253406002D91F8 /* ViewDetailType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDetailType.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				A3792D20281FEE5C00BB8ADD /* CustomViewController.swift */,
+				A39A8B9D2848A83E001584D9 /* File.swift */,
 				A38F4298283BB97B000A50B9 /* RoutePlanningCollectionViewController.swift */,
 				A3BA59E228365EF600CED1BB /* RouteTableViewCell.swift */,
 			);
@@ -336,6 +339,7 @@
 				A3792CF8281FE7DD00BB8ADD /* TravelList.xcdatamodeld in Sources */,
 				A3792CEE281FE7DD00BB8ADD /* AppDelegate.swift in Sources */,
 				A3E40F9628229ADD00572956 /* TableViewCellViewModelType.swift in Sources */,
+				A39A8B9E2848A83E001584D9 /* File.swift in Sources */,
 				A3E89A3C283CD550006EB955 /* DetailRoutePlanningViewModelType.swift in Sources */,
 				A3A85F4828252AED002D91F8 /* CollectionViewModelType.swift in Sources */,
 				A3E40F9328229A3700572956 /* TableViewViewModelType.swift in Sources */,
