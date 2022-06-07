@@ -12,10 +12,6 @@ class CustomViewController: UIViewController {
     var viewModel: TableViewViewModelType?
     //var routeName: [RouteEntity] = []
     
-    var userRoute: [Route] = [
-        Route(nameRoute: "London", nameCity: ["1", "2"], travelDates: Date()),
-        Route(nameRoute: "Moskoy", nameCity: ["3", "4"], travelDates: Date())]
-    
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -29,23 +25,13 @@ class CustomViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    /*private lazy var alphaForTableView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .green
-        //view.alpha = 1
-        
-        return view
-    }() */
+ 
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .green
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = .red
         tableView.register(RouteTableViewCell.self, forCellReuseIdentifier: "RouteTableViewCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
@@ -60,6 +46,7 @@ class CustomViewController: UIViewController {
         button.setTitle("+", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
@@ -79,9 +66,6 @@ class CustomViewController: UIViewController {
         self.view.addSubview(nameLabel)
         
         NSLayoutConstraint.activate([
-            
-            
-            
             self.nameLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 50),
             self.nameLabel.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
             self.nameLabel.widthAnchor.constraint(equalToConstant: 300),
@@ -92,10 +76,10 @@ class CustomViewController: UIViewController {
             self.newRouteButton.heightAnchor.constraint(equalToConstant: 55),
             self.newRouteButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -55),
             
-            self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 115),
-            self.tableView.leftAnchor.constraint(equalTo: self.nameLabel.leftAnchor,constant: 15),
-            self.tableView.rightAnchor.constraint(equalTo: self.nameLabel.rightAnchor, constant: -15),
-            self.tableView.heightAnchor.constraint(equalToConstant: 350)
+            self.tableView.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor, constant: 35),
+            self.tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor),
+            self.tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: self.newRouteButton.topAnchor, constant: -25)
         ].compactMap({ $0 }))
     }
     
@@ -138,8 +122,22 @@ extension CustomViewController: UITableViewDataSource, UITableViewDelegate {
         let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
 
         tableViewCell.viewModel = cellViewModel
-        let a = tableViewCell.viewModel
         return tableViewCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let viewModel = viewModel else { return }
+        let vc = RoutePlanningViewController()
+        let viewmodeltext = PlaningRoute(cityName: viewModel.cellViewModel(forIndexPath: indexPath)?.routeName ?? "uiopo", nameCell: "", nameImageCell: "")
+        vc.modelPlanningRoute = viewmodeltext
+        navigationController?.pushViewController(vc, animated: true)
+    
+    tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(80)
     }
     
     

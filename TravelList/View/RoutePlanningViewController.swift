@@ -9,16 +9,16 @@ import UIKit
 
 class RoutePlanningViewController: UIViewController {
     
-    private var planningViewModel: DetailRoutePlanningViewModelType?
+
+    var model: CollectionViewModelType?
+    var modelPlanningRoute: PlaningRoute?
+    
     
     private lazy var nameRouteLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.text = planningViewModel?.namePage.nameRoute
-        //label.text = "Fttttt"
-        label.backgroundColor = .systemFill
+        label.text = modelPlanningRoute?.cityName ?? "uio"
         label.layer.masksToBounds = true
-        //label.layer.cornerRadius = 25
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -28,7 +28,7 @@ class RoutePlanningViewController: UIViewController {
     
     private lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
+        //layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 25
         return layout
@@ -39,7 +39,7 @@ class RoutePlanningViewController: UIViewController {
         let photoCollection = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
         photoCollection.dataSource = self
         photoCollection.delegate = self
-        photoCollection.backgroundColor = .systemBrown
+        //photoCollection.backgroundColor = .systemBrown
         photoCollection.register(PlanningCollectionViewCell.self, forCellWithReuseIdentifier: "PlanningCollectionViewCell")
         photoCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
         photoCollection.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +48,8 @@ class RoutePlanningViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .cyan
+        view.backgroundColor = .systemGray6
+        self.model = CollectionViewModel()
         setupView()
     }
     
@@ -57,7 +58,7 @@ class RoutePlanningViewController: UIViewController {
         
         self.view.addSubview(self.nameRouteLabel)
         self.view.addSubview(self.planningCollectionView)
-        
+        self.planningCollectionView.backgroundColor = .systemGray6
         NSLayoutConstraint.activate([
             self.nameRouteLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 25),
             self.nameRouteLabel.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 35),
@@ -65,8 +66,8 @@ class RoutePlanningViewController: UIViewController {
             
             
             self.planningCollectionView.topAnchor.constraint(equalTo: self.nameRouteLabel.bottomAnchor, constant: 25),
-            self.planningCollectionView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor),
-            self.planningCollectionView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor),
+            self.planningCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            self.planningCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             self.planningCollectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         ].compactMap({ $0 }))
         
@@ -75,25 +76,35 @@ class RoutePlanningViewController: UIViewController {
 }
 
 
-extension RoutePlanningCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension RoutePlanningViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        print(iconsCell.count)
-        return iconsCell.count
+
+        return self.model?.numberOfItemInSection() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlanningCollectionViewCell", for: indexPath) as? PlanningCollectionViewCell else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DefaultCell", for: indexPath)
-            
-            print("fghhjuyt")
             return cell
         }
-        //let photo = self.dataSource[indexPath.row]
-        //cell.setup(photo: photo!)
+        let cellViewModel = model?.cellViewModel(cellForItemAt: indexPath)
+        cell.planningviewModel = cellViewModel
+
         return cell
     }
+        
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+           return CGSize(width: 170, height: 200)
+       }
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as? PlanningCollectionViewCell
+        print(indexPath)
+       // let vc =
+        //navigationController?.pushViewController(vc, animated: true)
+        //cell?.updateText("BBB")
+    }
     
 }

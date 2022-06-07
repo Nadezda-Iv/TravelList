@@ -8,7 +8,8 @@
 import UIKit
 
 class DetailRoutePlanningViewModelType: ViewDetailType {
-    var namePage: Route //  изменить
+    
+    internal var namePage: Route //  изменить
     
     var description: String {
         return String(describing: "\(namePage.nameRoute)  c \(String(namePage.travelDates.description))")

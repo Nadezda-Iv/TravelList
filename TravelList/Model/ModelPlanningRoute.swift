@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+
+struct PlaningRoute {
+    var cityName: String
+    var nameCell: String
+    var nameImageCell: String
+    
+    
+    
+}
+
+//let iconsCell = ["listRoute", "luggage_bag", "map", "weather"]

@@ -9,12 +9,8 @@ import UIKit
 
 class RouteTableViewCell: UITableViewCell {
     
-    lazy var saveRoute = TableViewModel()
-    lazy var array = CustomViewController()
-    
     private var routeName: UILabel = {
         let label = UILabel()
-        //label.text = "Joker"
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +18,6 @@ class RouteTableViewCell: UITableViewCell {
     }()
     private var dates: UILabel = {
         let label = UILabel()
-        //label.text = "Mr"
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -31,12 +26,9 @@ class RouteTableViewCell: UITableViewCell {
     
     weak var viewModel: TableViewCellViewModelType? {
         willSet(viewModel) {
-            print("lo")
-           
             guard let viewModel = viewModel else { return }
             routeName.text = viewModel.routeName
             dates.text = viewModel.dates
-            print("la")
         }
     }
     

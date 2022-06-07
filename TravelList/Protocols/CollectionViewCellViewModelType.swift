@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CollectionViewCellViewModelType {
+protocol CollectionViewCellViewModelType: AnyObject {
     var imageName: String {get}
     var nameOfSection: String {get}
 }
