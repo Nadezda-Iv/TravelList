@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A306FF22284F6AE7000EBF48 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306FF21284F6AE7000EBF48 /* WeatherViewController.swift */; };
+		A306FF24284F6CF3000EBF48 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306FF23284F6CF3000EBF48 /* WeatherTableViewCell.swift */; };
 		A3792CEE281FE7DD00BB8ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3792CED281FE7DD00BB8ADD /* AppDelegate.swift */; };
 		A3792CF0281FE7DD00BB8ADD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3792CEF281FE7DD00BB8ADD /* SceneDelegate.swift */; };
 		A3792CF8281FE7DD00BB8ADD /* TravelList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A3792CF6281FE7DD00BB8ADD /* TravelList.xcdatamodeld */; };
@@ -27,11 +29,18 @@
 		A3A85F4A28252E77002D91F8 /* CollectionViewCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A85F4928252E77002D91F8 /* CollectionViewCellViewModelType.swift */; };
 		A3A85F4C28253406002D91F8 /* ViewDetailType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A85F4B28253406002D91F8 /* ViewDetailType.swift */; };
 		A3BA59E328365EF600CED1BB /* RouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA59E228365EF600CED1BB /* RouteTableViewCell.swift */; };
+		A3C8CE26284F85D1000FA4C6 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8CE25284F85D1000FA4C6 /* WeatherModel.swift */; };
+		A3C8CE28284F862B000FA4C6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8CE27284F862B000FA4C6 /* MapViewController.swift */; };
+		A3C8CE2A284F866F000FA4C6 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8CE29284F866F000FA4C6 /* MapModel.swift */; };
 		A3E40F9328229A3700572956 /* TableViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E40F9228229A3700572956 /* TableViewViewModelType.swift */; };
 		A3E40F9628229ADD00572956 /* TableViewCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E40F9528229ADD00572956 /* TableViewCellViewModelType.swift */; };
 		A3E40F9A28229B7200572956 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E40F9928229B7200572956 /* Box.swift */; };
 		A3E89A3A283CC38C006EB955 /* TableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E89A39283CC38C006EB955 /* TableViewCellViewModel.swift */; };
 		A3E89A3C283CD550006EB955 /* DetailRoutePlanningViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E89A3B283CD550006EB955 /* DetailRoutePlanningViewModelType.swift */; };
+		A3F7264A285079B700E7A907 /* ListOfPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F72649285079B700E7A907 /* ListOfPlacesViewController.swift */; };
+		A3F7264C28507A4F00E7A907 /* ListOfPlacesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F7264B28507A4F00E7A907 /* ListOfPlacesTableViewCell.swift */; };
+		A3F7264F28507C3900E7A907 /* CheckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F7264E28507C3900E7A907 /* CheckListViewController.swift */; };
+		A3F7265128507C5600E7A907 /* CheckListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F7265028507C5600E7A907 /* CheckListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A306FF21284F6AE7000EBF48 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		A306FF23284F6CF3000EBF48 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		A3792CEA281FE7DD00BB8ADD /* TravelList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3792CED281FE7DD00BB8ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3792CEF281FE7DD00BB8ADD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,11 +87,18 @@
 		A3A85F4928252E77002D91F8 /* CollectionViewCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellViewModelType.swift; sourceTree = "<group>"; };
 		A3A85F4B28253406002D91F8 /* ViewDetailType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDetailType.swift; sourceTree = "<group>"; };
 		A3BA59E228365EF600CED1BB /* RouteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTableViewCell.swift; sourceTree = "<group>"; };
+		A3C8CE25284F85D1000FA4C6 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		A3C8CE27284F862B000FA4C6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A3C8CE29284F866F000FA4C6 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		A3E40F9228229A3700572956 /* TableViewViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewModelType.swift; sourceTree = "<group>"; };
 		A3E40F9528229ADD00572956 /* TableViewCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModelType.swift; sourceTree = "<group>"; };
 		A3E40F9928229B7200572956 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		A3E89A39283CC38C006EB955 /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModel.swift; sourceTree = "<group>"; };
 		A3E89A3B283CD550006EB955 /* DetailRoutePlanningViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRoutePlanningViewModelType.swift; sourceTree = "<group>"; };
+		A3F72649285079B700E7A907 /* ListOfPlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfPlacesViewController.swift; sourceTree = "<group>"; };
+		A3F7264B28507A4F00E7A907 /* ListOfPlacesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfPlacesTableViewCell.swift; sourceTree = "<group>"; };
+		A3F7264E28507C3900E7A907 /* CheckListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListViewController.swift; sourceTree = "<group>"; };
+		A3F7265028507C5600E7A907 /* CheckListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +186,8 @@
 			children = (
 				A3792D22281FF9DE00BB8ADD /* ModelRoute.swift */,
 				A39A8B9F2848C8A1001584D9 /* ModelPlanningRoute.swift */,
+				A3C8CE25284F85D1000FA4C6 /* WeatherModel.swift */,
+				A3C8CE29284F866F000FA4C6 /* MapModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,6 +202,33 @@
 				A38C2B6E284DE42600473A78 /* PlanningCollectionViewCellViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A3C8CE22284F854C000FA4C6 /* FirstScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A3792D20281FEE5C00BB8ADD /* CustomViewController.swift */,
+				A3BA59E228365EF600CED1BB /* RouteTableViewCell.swift */,
+			);
+			path = FirstScreen;
+			sourceTree = "<group>";
+		};
+		A3C8CE23284F8588000FA4C6 /* WeatherScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A306FF21284F6AE7000EBF48 /* WeatherViewController.swift */,
+				A306FF23284F6CF3000EBF48 /* WeatherTableViewCell.swift */,
+			);
+			path = WeatherScreen;
+			sourceTree = "<group>";
+		};
+		A3C8CE24284F85A3000FA4C6 /* PlanningRouteScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A38F4298283BB97B000A50B9 /* RoutePlanningViewController.swift */,
+				A39A8BA12848EC31001584D9 /* PlanningCollectionViewCell.swift */,
+			);
+			path = PlanningRouteScreen;
 			sourceTree = "<group>";
 		};
 		A3E40F9428229A5400572956 /* Protocols */ = {
@@ -199,12 +246,32 @@
 		A3E40F9B28229BA500572956 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A3792D20281FEE5C00BB8ADD /* CustomViewController.swift */,
-				A38F4298283BB97B000A50B9 /* RoutePlanningViewController.swift */,
-				A3BA59E228365EF600CED1BB /* RouteTableViewCell.swift */,
-				A39A8BA12848EC31001584D9 /* PlanningCollectionViewCell.swift */,
+				A3F7264D28507C1400E7A907 /* CheckList */,
+				A3F726482850798000E7A907 /* ListOfPlaces */,
+				A3C8CE22284F854C000FA4C6 /* FirstScreen */,
+				A3C8CE23284F8588000FA4C6 /* WeatherScreen */,
+				A3C8CE24284F85A3000FA4C6 /* PlanningRouteScreen */,
+				A3C8CE27284F862B000FA4C6 /* MapViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A3F726482850798000E7A907 /* ListOfPlaces */ = {
+			isa = PBXGroup;
+			children = (
+				A3F72649285079B700E7A907 /* ListOfPlacesViewController.swift */,
+				A3F7264B28507A4F00E7A907 /* ListOfPlacesTableViewCell.swift */,
+			);
+			path = ListOfPlaces;
+			sourceTree = "<group>";
+		};
+		A3F7264D28507C1400E7A907 /* CheckList */ = {
+			isa = PBXGroup;
+			children = (
+				A3F7264E28507C3900E7A907 /* CheckListViewController.swift */,
+				A3F7265028507C5600E7A907 /* CheckListTableViewCell.swift */,
+			);
+			path = CheckList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,10 +405,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A39A8BA02848C8A1001584D9 /* ModelPlanningRoute.swift in Sources */,
+				A3C8CE2A284F866F000FA4C6 /* MapModel.swift in Sources */,
 				A3A85F4A28252E77002D91F8 /* CollectionViewCellViewModelType.swift in Sources */,
+				A306FF24284F6CF3000EBF48 /* WeatherTableViewCell.swift in Sources */,
 				A38C2B6F284DE42600473A78 /* PlanningCollectionViewCellViewModel.swift in Sources */,
 				A38F4299283BB97B000A50B9 /* RoutePlanningViewController.swift in Sources */,
+				A3F7264C28507A4F00E7A907 /* ListOfPlacesTableViewCell.swift in Sources */,
+				A306FF22284F6AE7000EBF48 /* WeatherViewController.swift in Sources */,
 				A38C2B71284E060C00473A78 /* CollectionViewModel.swift in Sources */,
+				A3F7264A285079B700E7A907 /* ListOfPlacesViewController.swift in Sources */,
+				A3C8CE28284F862B000FA4C6 /* MapViewController.swift in Sources */,
 				A3BA59E328365EF600CED1BB /* RouteTableViewCell.swift in Sources */,
 				A3A85F4C28253406002D91F8 /* ViewDetailType.swift in Sources */,
 				A3792D23281FF9DE00BB8ADD /* ModelRoute.swift in Sources */,
@@ -352,8 +425,11 @@
 				A3792CEE281FE7DD00BB8ADD /* AppDelegate.swift in Sources */,
 				A3E40F9628229ADD00572956 /* TableViewCellViewModelType.swift in Sources */,
 				A39A8BA22848EC31001584D9 /* PlanningCollectionViewCell.swift in Sources */,
+				A3F7264F28507C3900E7A907 /* CheckListViewController.swift in Sources */,
 				A3E89A3C283CD550006EB955 /* DetailRoutePlanningViewModelType.swift in Sources */,
+				A3F7265128507C5600E7A907 /* CheckListTableViewCell.swift in Sources */,
 				A3A85F4828252AED002D91F8 /* CollectionViewModelType.swift in Sources */,
+				A3C8CE26284F85D1000FA4C6 /* WeatherModel.swift in Sources */,
 				A3E40F9328229A3700572956 /* TableViewViewModelType.swift in Sources */,
 				A3792CF0281FE7DD00BB8ADD /* SceneDelegate.swift in Sources */,
 				A3E40F9A28229B7200572956 /* Box.swift in Sources */,

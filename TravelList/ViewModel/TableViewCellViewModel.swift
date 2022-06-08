@@ -15,7 +15,8 @@ class TableViewCellViewModel: TableViewCellViewModelType {
     }
     
     var dates: String {
-        return String(describing: modelRoute.travelDates)
+        return ""
+       // return String(describing: modelRoute.travelDates)
     }
     
     init(route: Route) {

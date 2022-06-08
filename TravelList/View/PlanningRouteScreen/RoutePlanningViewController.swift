@@ -28,7 +28,6 @@ class RoutePlanningViewController: UIViewController {
     
     private lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
-        //layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 25
         return layout
@@ -39,7 +38,6 @@ class RoutePlanningViewController: UIViewController {
         let photoCollection = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
         photoCollection.dataSource = self
         photoCollection.delegate = self
-        //photoCollection.backgroundColor = .systemBrown
         photoCollection.register(PlanningCollectionViewCell.self, forCellWithReuseIdentifier: "PlanningCollectionViewCell")
         photoCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
         photoCollection.translatesAutoresizingMaskIntoConstraints = false
@@ -100,10 +98,21 @@ extension RoutePlanningViewController: UICollectionViewDelegate, UICollectionVie
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as? PlanningCollectionViewCell
+        //let cell = collectionView.cellForItem(at: indexPath) as? PlanningCollectionViewCell
         print(indexPath)
-       // let vc =
-        //navigationController?.pushViewController(vc, animated: true)
+         //let vc = WeatherViewController()
+        let vc: UIViewController
+        switch indexPath {
+        case [0,0] : vc = WeatherViewController() // white
+        case [0,1] : vc = CheckListViewController() // pink
+        case [0,2] : vc = ListOfPlacesViewController() // green
+        case [0,3] : vc = MapViewController() // yellow
+
+        default:
+            vc = WeatherViewController()
+        }
+        
+        navigationController?.pushViewController(vc, animated: true)
         //cell?.updateText("BBB")
     }
     
