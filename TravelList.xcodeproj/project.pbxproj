@@ -32,6 +32,8 @@
 		A3C8CE26284F85D1000FA4C6 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8CE25284F85D1000FA4C6 /* WeatherModel.swift */; };
 		A3C8CE28284F862B000FA4C6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8CE27284F862B000FA4C6 /* MapViewController.swift */; };
 		A3C8CE2A284F866F000FA4C6 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8CE29284F866F000FA4C6 /* MapModel.swift */; };
+		A3CE8A2F2861B8DA00C05F07 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CE8A2E2861B8DA00C05F07 /* CurrentWeather.swift */; };
+		A3CE8A312861B91C00C05F07 /* CurrentWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CE8A302861B91C00C05F07 /* CurrentWeatherData.swift */; };
 		A3E40F9328229A3700572956 /* TableViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E40F9228229A3700572956 /* TableViewViewModelType.swift */; };
 		A3E40F9628229ADD00572956 /* TableViewCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E40F9528229ADD00572956 /* TableViewCellViewModelType.swift */; };
 		A3E40F9A28229B7200572956 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E40F9928229B7200572956 /* Box.swift */; };
@@ -41,6 +43,7 @@
 		A3F7264C28507A4F00E7A907 /* ListOfPlacesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F7264B28507A4F00E7A907 /* ListOfPlacesTableViewCell.swift */; };
 		A3F7264F28507C3900E7A907 /* CheckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F7264E28507C3900E7A907 /* CheckListViewController.swift */; };
 		A3F7265128507C5600E7A907 /* CheckListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F7265028507C5600E7A907 /* CheckListTableViewCell.swift */; };
+		A3F726532850C95700E7A907 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F726522850C95700E7A907 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +93,8 @@
 		A3C8CE25284F85D1000FA4C6 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		A3C8CE27284F862B000FA4C6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A3C8CE29284F866F000FA4C6 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
+		A3CE8A2E2861B8DA00C05F07 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		A3CE8A302861B91C00C05F07 /* CurrentWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherData.swift; sourceTree = "<group>"; };
 		A3E40F9228229A3700572956 /* TableViewViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewModelType.swift; sourceTree = "<group>"; };
 		A3E40F9528229ADD00572956 /* TableViewCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModelType.swift; sourceTree = "<group>"; };
 		A3E40F9928229B7200572956 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
@@ -99,6 +104,7 @@
 		A3F7264B28507A4F00E7A907 /* ListOfPlacesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfPlacesTableViewCell.swift; sourceTree = "<group>"; };
 		A3F7264E28507C3900E7A907 /* CheckListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListViewController.swift; sourceTree = "<group>"; };
 		A3F7265028507C5600E7A907 /* CheckListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListTableViewCell.swift; sourceTree = "<group>"; };
+		A3F726522850C95700E7A907 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,8 @@
 		A3792D24281FF9FA00BB8ADD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A3CE8A302861B91C00C05F07 /* CurrentWeatherData.swift */,
+				A3F726522850C95700E7A907 /* NetworkManager.swift */,
 				A3792D22281FF9DE00BB8ADD /* ModelRoute.swift */,
 				A39A8B9F2848C8A1001584D9 /* ModelPlanningRoute.swift */,
 				A3C8CE25284F85D1000FA4C6 /* WeatherModel.swift */,
@@ -195,6 +203,7 @@
 		A38F429A283BBE3E000A50B9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A3CE8A2E2861B8DA00C05F07 /* CurrentWeather.swift */,
 				A38F429B283BBE98000A50B9 /* TableViewModel.swift */,
 				A38C2B70284E060C00473A78 /* CollectionViewModel.swift */,
 				A3E89A39283CC38C006EB955 /* TableViewCellViewModel.swift */,
@@ -404,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3CE8A312861B91C00C05F07 /* CurrentWeatherData.swift in Sources */,
 				A39A8BA02848C8A1001584D9 /* ModelPlanningRoute.swift in Sources */,
 				A3C8CE2A284F866F000FA4C6 /* MapModel.swift in Sources */,
 				A3A85F4A28252E77002D91F8 /* CollectionViewCellViewModelType.swift in Sources */,
@@ -416,6 +426,7 @@
 				A3F7264A285079B700E7A907 /* ListOfPlacesViewController.swift in Sources */,
 				A3C8CE28284F862B000FA4C6 /* MapViewController.swift in Sources */,
 				A3BA59E328365EF600CED1BB /* RouteTableViewCell.swift in Sources */,
+				A3F726532850C95700E7A907 /* NetworkManager.swift in Sources */,
 				A3A85F4C28253406002D91F8 /* ViewDetailType.swift in Sources */,
 				A3792D23281FF9DE00BB8ADD /* ModelRoute.swift in Sources */,
 				A3E89A3A283CC38C006EB955 /* TableViewCellViewModel.swift in Sources */,
@@ -425,6 +436,7 @@
 				A3792CEE281FE7DD00BB8ADD /* AppDelegate.swift in Sources */,
 				A3E40F9628229ADD00572956 /* TableViewCellViewModelType.swift in Sources */,
 				A39A8BA22848EC31001584D9 /* PlanningCollectionViewCell.swift in Sources */,
+				A3CE8A2F2861B8DA00C05F07 /* CurrentWeather.swift in Sources */,
 				A3F7264F28507C3900E7A907 /* CheckListViewController.swift in Sources */,
 				A3E89A3C283CD550006EB955 /* DetailRoutePlanningViewModelType.swift in Sources */,
 				A3F7265128507C5600E7A907 /* CheckListTableViewCell.swift in Sources */,
