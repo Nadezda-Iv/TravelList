@@ -15,10 +15,10 @@ struct CurrentWeather {
         return String(format: "%.1f", temperature)
     }
     
-    let feelsLikeTemperature: Double
-    var feelsLikeTemperatureString: String {
-        return String(format: "%.1f", feelsLikeTemperature)
-    }
+    //let feelsLikeTemperature: Double
+    //var feelsLikeTemperatureString: String {
+    //    return String(format: "%.1f", feelsLikeTemperature)
+   // }
     
     let conditionCode: Int
     var systemIconNameString: String {
@@ -34,10 +34,10 @@ struct CurrentWeather {
         }
     }
     
-    init?(currentWeatherData: CurrentWeatherData) {
+    init?(currentWeatherData: CurrentWeatherNow) {
         cityName = currentWeatherData.name
         temperature = currentWeatherData.main.temp
-        feelsLikeTemperature = currentWeatherData.main.feelsLike
+        //feelsLikeTemperature = currentWeatherData.main.feelsLike
         conditionCode = currentWeatherData.weather.first!.id
     }
 }

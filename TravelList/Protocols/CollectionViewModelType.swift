@@ -15,12 +15,3 @@ protocol CollectionViewModelType {
     func viewModelForSelectedItem() -> Int? // переход на след вью (карта, погода, чеклист - зависит от номера ячейкки)
    // func selectItem(atIndexPath indexPath: IndexPath) // нажатие на выбранную ячейку
 }
-
-
-/*
- func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-     let cell = collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell
-     print(indexPath)
-     cell?.updateText("BBB")
- }
- */

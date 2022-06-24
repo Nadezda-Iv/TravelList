@@ -98,9 +98,9 @@ extension RoutePlanningViewController: UICollectionViewDelegate, UICollectionVie
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //let cell = collectionView.cellForItem(at: indexPath) as? PlanningCollectionViewCell
+
         print(indexPath)
-         //let vc = WeatherViewController()
+
         let vc: UIViewController
         switch indexPath {
         case [0,0] : vc = WeatherViewController() // white
@@ -111,9 +111,7 @@ extension RoutePlanningViewController: UICollectionViewDelegate, UICollectionVie
         default:
             vc = WeatherViewController()
         }
-        
         navigationController?.pushViewController(vc, animated: true)
-        //cell?.updateText("BBB")
     }
     
 }

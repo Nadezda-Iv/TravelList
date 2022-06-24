@@ -1,14 +1,12 @@
 //
-//  ImageViewDetailType.swift
+//  ViewDetailType.swift
 //  TravelList
 //
-//  Created by NADEZDA IVANOVA on 06.05.2022.
+//  Created by NADEZDA IVANOVA on 24.06.2022.
 //
 
 import Foundation
-import UIKit
 
 protocol ViewDetailType {
-    var namePage: Route {get}
-  
+    var nameRoute: String {get}
 }
