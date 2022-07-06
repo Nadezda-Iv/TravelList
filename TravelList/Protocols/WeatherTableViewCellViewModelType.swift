@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol WeatherTableViewCellViewModelType {
+protocol WeatherTableViewCellViewModelType: AnyObject {
     var dayWeek: String { get }
     var tempCurerentDay: String { get }
     var nameIconWeather: String {get}

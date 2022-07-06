@@ -23,4 +23,6 @@ class TableViewCellViewModel: TableViewCellViewModelType {
         self.modelRoute = route
     }
     
+
+    
 }

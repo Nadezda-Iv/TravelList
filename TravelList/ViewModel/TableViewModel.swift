@@ -25,14 +25,15 @@ class TableViewModel: TableViewViewModelType {
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> TableViewCellViewModelType? {
         let profile = userRoute[indexPath.row]
-        
         return TableViewCellViewModel(route: profile)
     }
+    
     
     func viewModelForSelectedRow() -> DetailRoutePlanningViewModelType? {
        guard let selectedIndexPath = selectedIndexPath else { return nil }
         return DetailRoutePlanningViewModelType(nameRoute: userRoute[selectedIndexPath.row])
     }
+    
     
     func selectRow(atIndexPath indexPath: IndexPath) {
         self.selectedIndexPath = indexPath

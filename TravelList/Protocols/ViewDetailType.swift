@@ -8,5 +8,6 @@
 import Foundation
 
 protocol ViewDetailType {
-    var nameRoute: String {get}
+    var namePage: Route {get}
+  
 }

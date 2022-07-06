@@ -11,6 +11,8 @@ import UIKit
 class WeatherViewController: UIViewController {
     
     //var networkWeatherManager = NetworkWeatherManager()
+    var viewModelWeather: WeatherTableViewModelType?
+    
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -87,15 +89,37 @@ class WeatherViewController: UIViewController {
         return tableView
     }()
     
+    var currentDataLoader: NetworkWeatherManager?
+    var forecastDataLoader: NetworkWeatherManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
-        //networkWeatherManager.fetchCurrentWeather(forCity: "London")
+        
+        viewModelWeather = WeatherTableViewModel()
         setupView()
         self.tableView.reloadData()
     }
+    private func config() {
+        
+        currentDataLoader = NetworkWeatherManager()
+        currentDataLoader?.pullJsonData(url: currentDataLoader?.url, forecast: false) {
+            self.updateCurrentData()
+        }
+        
+        forecastDataLoader = NetworkWeatherManager()
+        forecastDataLoader?.pullJsonData(url: forecastDataLoader?.url2, forecast: true){
+            self.tableView.reloadData()
+        }
+    }
     
+    func updateCurrentData() {
+        self.tempMaxLabel.text = String(Int((currentDataLoader?.currentWeather?.main.temp_max)!)) + "°"
+        self.tempMinLabel.text = String(Int((currentDataLoader?.currentWeather?.main.temp_min)!)) + "°"
+        self.tempLabel.text = String(Int((currentDataLoader?.currentWeather?.main.temp)!)) + "°"
+        
+        tableView.reloadData()
+    }
     
     private func setupView() {
         self.view.backgroundColor = .white
@@ -140,13 +164,42 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTableViewCell", for: indexPath) as? WeatherTableViewCell else { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTableViewCell", for: indexPath) as? WeatherTableViewCell
         
-        return cell
+         guard let tableViewCell = cell, let viewModel = viewModelWeather else { return UITableViewCell() }
+         
+         let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
+
+         tableViewCell.viewModel = cellViewModel
+         return tableViewCell
+         
+        
+       /*
+        let dtTxt = forecastDataLoader?.weatherData?.list?[indexPath.row * 8 + 5].dt_txt
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateValue = dtTxt ?? ""
+        let date = dateFormatter.date(from: dateValue) ?? Date.now
+        let dayOfWeek = Calendar.current.component(.weekday, from: date)
+        let day = Calendar.current.weekdaySymbols[dayOfWeek - 1]
+        cell.dateLabel?.text = day
+        cell.temperatureLabel?.text = String(Int(forecastDataLoader?.weatherData?.list![indexPath.row * 8 + 5].main.temp ?? 293)) + "°"
+        let image = forecastDataLoader?.weatherData?.list![indexPath.row * 8 + 5].weather[0].main
+        switch image ?? "Clear"{
+        case "Clear": cell.weatherIconImageView?.image = UIImage(systemName: "sun.max")
+        case "Clouds": cell.weatherIconImageView?.image = UIImage(systemName: "cloud")
+        default: cell.weatherIconImageView?.image = UIImage(systemName: "cloud.rain")
+        }
+        */
+        
+        //return cell
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(130)
+        return CGFloat(80)
     }
 }
 

@@ -16,5 +16,3 @@ struct PlaningRoute {
     
     
 }
-
-//let iconsCell = ["listRoute", "luggage_bag", "map", "weather"]
