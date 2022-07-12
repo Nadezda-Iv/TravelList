@@ -42,3 +42,7 @@ struct List: Codable {
     let weather: [ForecastWeather]
     var dt_txt: String
 }
+
+struct Weather: Codable {
+    let id: Int
+}

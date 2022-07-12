@@ -5,34 +5,59 @@
 //  Created by NADEZDA IVANOVA on 24.06.2022.
 //
 
-import Foundation
+import UIKit
 
 class WeatherTableViewModel: WeatherTableViewModelType {
     
-    
-    private var selectedIndexPath: IndexPath?
+    private var forecastDataLoader: NetworkWeatherManager?
+    private var imageF: UIImageView?
 
+    private func config() {
+        forecastDataLoader = NetworkWeatherManager()
+        forecastDataLoader?.pullJsonData(url: forecastDataLoader?.url2, forecast: true){
+        }
+    }
+    
     func numberOfRows() -> Int {
         return 5
     }
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> WeatherTableViewCellViewModelType? {
+       
+        let icon = forecastDataLoader?.weatherData?.list![indexPath.row * 8 + 5].weather[0].main
+        switch icon ?? "Clear"{
+        case "Clear": imageF?.image =  UIImage(systemName: "sun.max")
+            case "Clouds": imageF?.image = UIImage(systemName: "cloud")
+            default: imageF?.image = UIImage(systemName: "cloud.rain")
+        }
         
-        return WeatherTableViewCellViewModelType()
+        let temp = String(Int(forecastDataLoader?.weatherData?.list![indexPath.row * 8 + 5].main.temp ?? 293)) + "°"
         
+        let dtTxt = forecastDataLoader?.weatherData?.list?[indexPath.row * 8 + 5].dt_txt
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateValue = dtTxt ?? ""
+        let date = dateFormatter.date(from: dateValue) ?? Date.now
+        let dayOfWeek = Calendar.current.component(.weekday, from: date)
         
-        /*
-         func cellViewModel(forIndexPath indexPath: IndexPath) -> TableViewCellViewModelType? {
-             let profile = userRoute[indexPath.row]
-             return TableViewCellViewModel(route: profile)
-         }
-         */
-        /*
-         TableViewCellViewModelType? {
-             let profile = userRoute[indexPath.row]
-             return TableViewCellViewModel(route: profile)
-         */
+        let day = Calendar.current.weekdaySymbols[dayOfWeek - 1]
+        
+        let weather = WeatherModel(day: day, icon: imageF?.layer.name ?? "sun.max", temperature: temp)
+
+        return WeatherTableViewCellViewModel(weatherModel: weather)
+   
     }
+    
+        
+    }
+    
+  
+    
+  
+     
+     
     
     /*
      
@@ -67,4 +92,4 @@ class WeatherTableViewModel: WeatherTableViewModelType {
 
     
     
-}
+//}

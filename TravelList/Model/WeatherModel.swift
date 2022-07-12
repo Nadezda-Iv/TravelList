@@ -8,7 +8,7 @@
 import Foundation
 
 struct WeatherModel {
-    let day: String
-    let icon: String
-    let temperature: String
+    var day: String
+    var icon: String
+    var temperature: String
 }
