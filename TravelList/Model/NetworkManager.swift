@@ -4,31 +4,34 @@
 //
 //  Created by NADEZDA IVANOVA on 08.06.2022.
 //
-
 import Foundation
-import CoreLocation
 
-class NetworkWeatherManager {
-    //let apiKey = "0db510d5ae931965598605249e904349"
+public class NetworkWeatherManager {
     
     var weatherData: WeatherData?
     var currentWeather: WeatherMain?
 
-    let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=Sochi&appid=0db510d5ae931965598605249e904349")
-    let url2 = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=Sochi&appid=0db510d5ae931965598605249e904349")
+    let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=Sochi&appid=742cd7ad0d004354528057f9c83e91be")
+    let url2 = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=Sochi&appid=742cd7ad0d004354528057f9c83e91be")
 
     func decodeJSONForecast(JSONData: Data, completionHandler: () -> Void) {
+        print("open")
         let response = try! JSONDecoder().decode(WeatherData.self, from: JSONData)
         weatherData = response
+        print(JSONData)
         completionHandler()
+        print("finish")
     }
 
 
     func decodeJSONData(JSONData: Data, completionHandler: () -> Void) {
         do{
+            print("open")
             let response = try? JSONDecoder().decode(WeatherMain.self, from: JSONData)
             currentWeather = response
             completionHandler()
+            print(JSONData)
+            print("finish2")
         }
     }
 
@@ -58,6 +61,4 @@ class NetworkWeatherManager {
         task.resume()
     }
     
-    
-   
 }
