@@ -61,22 +61,20 @@ class WeatherViewController: UIViewController {
  
     private var imageWeatherView: UIImageView! = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .systemGray2
+       // imageView.backgroundColor = .systemGray2
         imageView.frame.size = CGSize(width: 90, height: 80)
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleToFill
-        imageView.layer.borderColor = UIColor.white.cgColor
+        //imageView.clipsToBounds = true
+       // imageView.contentMode = .scaleToFill
+        //imageView.layer.borderColor = UIColor.white.cgColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        //let sunnyColor = UIColor(red: 0/225, green: 182/225, blue: 255/225, alpha: 1)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         tableView.dataSource = self
         tableView.delegate = self
-        //tableView.backgroundColor = sunnyColor
         tableView.register(WeatherTableViewCell.self, forCellReuseIdentifier: "WeatherTableViewCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
@@ -103,6 +101,11 @@ class WeatherViewController: UIViewController {
         currentDataLoader = NetworkWeatherManager()
         currentDataLoader?.fetchWeather(forRequestType: .currentWeather(city: "\(modelWeather!.cityName)")) {
             self.updateCurrentData()
+        }
+        
+        forecastDataLoader = NetworkWeatherManager()
+        forecastDataLoader?.fetchWeather(forRequestType: .forecastWeather(city: "\(modelWeather!.cityName)")){
+            self.tableView.reloadData()
         }
 
     }
@@ -171,8 +174,6 @@ class WeatherViewController: UIViewController {
             self.tableView.topAnchor.constraint(equalTo: self.tempMinLabel.bottomAnchor, constant: 15),
             self.tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor),
             self.tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor),
-            //self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -5)
-            //self.tableView.heightAnchor.constraint(equalToConstant: self.tableView.contentSize.height)
             self.tableView.heightAnchor.constraint(equalToConstant: 400)
         ].compactMap({ $0 }))
     }
@@ -190,13 +191,31 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTableViewCell", for: indexPath) as? WeatherTableViewCell
         
-         guard let tableViewCell = cell, let viewModel = viewModelWeather else { return UITableViewCell() }
-         
-         let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
-
-         tableViewCell.viewModel = cellViewModel
-      
-        return tableViewCell
+        let dtTxt = forecastDataLoader?.weatherData?.list?[indexPath.row * 8 + 5].dt_txt
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateValue = dtTxt ?? ""
+        let date = dateFormatter.date(from: dateValue) ?? Date.now
+        let dayOfWeek = Calendar.current.component(.weekday, from: date)
+        let day = Calendar.current.weekdaySymbols[dayOfWeek - 1]
+        cell?.dateLabel.text = day
+        cell?.temperatureLabel.text = String(Int(forecastDataLoader?.weatherData?.list![indexPath.row * 8 + 5].main.temp ?? 293)) + "°"
+        let image = forecastDataLoader?.weatherData?.list![indexPath.row * 8 + 5].weather[0].main
+        switch image ?? "Clear"{
+        case "Clear": cell?.weatherIconImageView.image = UIImage(systemName: "sun.max")
+            case "Clouds": cell?.weatherIconImageView.image = UIImage(systemName: "cloud")
+            default: cell?.weatherIconImageView.image = UIImage(systemName: "cloud.rain")
+        }
+        
+     /*   switch currentDataLoader?.currentWeather?.main.main ?? "Clear" {
+            case "Clear": cell?.backgroundColor = UIColor(red: 71/225, green: 171/225, blue: 47/225, alpha: 1)
+            case "Clouds": cell?.backgroundColor = UIColor(red: 84/225, green: 113/225, blue: 124/225, alpha: 1)
+            default: cell?.backgroundColor = UIColor(red: 87/225, green: 87/225, blue: 93/225, alpha: 1)
+        }  */
+        
+        return cell!
         
     }
     

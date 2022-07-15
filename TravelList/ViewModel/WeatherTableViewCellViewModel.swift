@@ -6,6 +6,7 @@
 //
 
 import Foundation
+/*
 class WeatherTableViewCellViewModel: WeatherTableViewCellViewModelType {
     
     private var modelWeather: WeatherModel
@@ -29,3 +30,4 @@ class WeatherTableViewCellViewModel: WeatherTableViewCellViewModelType {
 
     
 }
+*/

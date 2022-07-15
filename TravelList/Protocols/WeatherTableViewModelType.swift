@@ -9,5 +9,5 @@ import Foundation
 
 protocol WeatherTableViewModelType {
     func numberOfRows() -> Int
-    func cellViewModel(forIndexPath indexPath: IndexPath) -> WeatherTableViewCellViewModelType?
+    //func cellViewModel(forIndexPath indexPath: IndexPath) -> WeatherTableViewCellViewModelType?
 }

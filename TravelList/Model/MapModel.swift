@@ -275,3 +275,76 @@ struct MapModel {
  }
 
  */
+
+
+/*
+ let icon = forecastDataLoader?.weatherData?.list![indexPath.row * 8 + 5].weather[0].main
+ switch icon ?? "Clear"{
+ case "Clear": imageF?.image =  UIImage(systemName: "sun.max")
+     case "Clouds": imageF?.image = UIImage(systemName: "cloud")
+     default: imageF?.image = UIImage(systemName: "cloud.rain")
+ }
+ 
+ let temp = String(Int(forecastDataLoader?.weatherData?.list![indexPath.row * 8 + 5].main.temp ?? 293)) + "°"
+ 
+ let dtTxt = forecastDataLoader?.weatherData?.list?[indexPath.row * 8 + 5].dt_txt
+ let dateFormatter = DateFormatter()
+ dateFormatter.locale = Locale.current
+ dateFormatter.timeZone = TimeZone.current
+ dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+ let dateValue = dtTxt ?? ""
+ let date = dateFormatter.date(from: dateValue) ?? Date.now
+ let dayOfWeek = Calendar.current.component(.weekday, from: date)
+ 
+ let day = Calendar.current.weekdaySymbols[dayOfWeek - 1]
+ 
+ let weather = WeatherModel(day: day, icon: imageF?.layer.name ?? "sun.max", temperature: temp)
+ */
+
+
+/*
+ func cellViewModel(forIndexPath indexPath: IndexPath) -> WeatherTableViewCellViewModelType? {
+     print("BBBBBB")
+     var weather = WeatherModel(day: "", icon: "", temperature: "")
+     
+     forecastDataLoader?.fetchWeather(forRequestType: .forecastWeather(city: "")) {
+         print("NNNNNNN")
+         let icon = self.forecastDataLoader?.weatherData?.list![indexPath.row * 8 + 5].weather[0].main
+         switch icon ?? "Clear"{
+         case "Clear": self.imageF?.image =  UIImage(systemName: "sun.max")
+         case "Clouds": self.imageF?.image = UIImage(systemName: "cloud")
+         default: self.imageF?.image = UIImage(systemName: "cloud.rain")
+         }
+         print("MMMMMMMMM")
+         let temp = String(Int(self.forecastDataLoader?.weatherData?.list![indexPath.row * 8 + 5].main.temp ?? 293)) + "°"
+         
+         let dtTxt = self.forecastDataLoader?.weatherData?.list?[indexPath.row * 8 + 5].dt_txt
+         print("YYYYYYY")
+         let dateFormatter = DateFormatter()
+         dateFormatter.locale = Locale.current
+         dateFormatter.timeZone = TimeZone.current
+         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+         let dateValue = dtTxt ?? ""
+         let date = dateFormatter.date(from: dateValue) ?? Date.now
+         let dayOfWeek = Calendar.current.component(.weekday, from: date)
+         
+         let day = Calendar.current.weekdaySymbols[dayOfWeek - 1]
+         
+         weather = WeatherModel(day: day, icon: "sun.max", temperature: temp)
+         print("AAAAAAA")
+         print(weather.day)
+     }
+     return WeatherTableViewCellViewModel(weatherModel: weather)
+
+  }
+}
+ */
+
+
+/*
+ guard let tableViewCell = cell, let viewModel = viewModelWeather else { return UITableViewCell() }
+ 
+ let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
+
+ tableViewCell.viewModel = cellViewModel
+*/

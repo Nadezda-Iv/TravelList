@@ -12,18 +12,18 @@ class WeatherTableViewCell: UITableViewCell {
     var networkWeatherManager = NetworkWeatherManager()
     var nameCityForWeather: String?
     
-    private var weatherIconImageView: UIImageView = {
+     var weatherIconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.borderWidth = 3
-        imageView.frame.size = CGSize(width: 90, height: 80)
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleToFill
-        imageView.layer.borderColor = UIColor.white.cgColor
+        //imageView.layer.borderWidth = 3
+        imageView.frame.size = CGSize(width: 80, height: 80)
+        //imageView.clipsToBounds = true
+        //imageView.contentMode = .scaleToFill
+        //imageView.layer.borderColor = UIColor.white.cgColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
-    private var temperatureLabel: UILabel = {
+     var temperatureLabel: UILabel = {
      let label = UILabel()
      label.textColor = .black
      label.font = UIFont.systemFont(ofSize: 16.0, weight: .bold)
@@ -31,7 +31,7 @@ class WeatherTableViewCell: UITableViewCell {
      return label
  }()
     
-    private var dateLabel: UILabel = {
+     var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16.0, weight: .bold)
@@ -50,14 +50,6 @@ class WeatherTableViewCell: UITableViewCell {
     }
     
     
-  /*  func updateInterfaceWith(weather: CurrentWeather) {
-        DispatchQueue.main.async {
-            self.temperatureLabel.text = "\(weather.temperatureString) °C"
-            self.weatherIconImageView.image = UIImage(systemName: weather.systemIconNameString)
-        }
-    } */
-    
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupView()
@@ -67,7 +59,7 @@ class WeatherTableViewCell: UITableViewCell {
     }
     
     private func setupView() {
-        let sunnyColor = UIColor(red: 0/225, green: 115/225, blue: 255/225, alpha: 1)
+        let sunnyColor = UIColor(red: 136/225, green: 217/225, blue: 235/225, alpha: 1)
         self.contentView.backgroundColor = sunnyColor
         self.contentView.addSubview(self.temperatureLabel)
         self.contentView.addSubview(self.weatherIconImageView)
