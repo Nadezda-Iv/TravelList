@@ -12,9 +12,10 @@ class WeatherTableViewModel: WeatherTableViewModelType {
     private var forecastDataLoader: NetworkWeatherManager?
     private var imageF: UIImageView?
 
+    let url2 = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=london&appid=742cd7ad0d004354528057f9c83e91be")
     private func config() {
         forecastDataLoader = NetworkWeatherManager()
-        forecastDataLoader?.pullJsonData(url: forecastDataLoader?.url2, forecast: true){
+        forecastDataLoader?.pullJsonData(url: url2, forecast: true){
         }
     }
     
@@ -45,7 +46,7 @@ class WeatherTableViewModel: WeatherTableViewModelType {
         let day = Calendar.current.weekdaySymbols[dayOfWeek - 1]
         
         let weather = WeatherModel(day: day, icon: imageF?.layer.name ?? "sun.max", temperature: temp)
-
+        //print(icon)
         return WeatherTableViewCellViewModel(weatherModel: weather)
    
     }

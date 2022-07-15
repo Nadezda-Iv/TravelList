@@ -17,7 +17,7 @@ class WeatherViewController: UIViewController {
         let label = UILabel()
         label.text = "Погода в \(modelWeather!.cityName)"
         label.textColor = .black
-        label.backgroundColor = .white
+        label.backgroundColor = .systemGray2
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 25
         label.textAlignment = .center
@@ -61,7 +61,7 @@ class WeatherViewController: UIViewController {
  
     private var imageWeatherView: UIImageView! = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .red
+        imageView.backgroundColor = .systemGray2
         imageView.frame.size = CGSize(width: 90, height: 80)
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleToFill
@@ -70,7 +70,7 @@ class WeatherViewController: UIViewController {
         return imageView
     }()
     
-   /* private lazy var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView()
         //let sunnyColor = UIColor(red: 0/225, green: 182/225, blue: 255/225, alpha: 1)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
@@ -80,10 +80,10 @@ class WeatherViewController: UIViewController {
         tableView.register(WeatherTableViewCell.self, forCellReuseIdentifier: "WeatherTableViewCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
-    }() */
+    }()
     
       var currentDataLoader: NetworkWeatherManager?
-      //var forecastDataLoader: NetworkWeatherManager?
+      var forecastDataLoader: NetworkWeatherManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,18 +91,17 @@ class WeatherViewController: UIViewController {
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "fon-pogoda.png")!)
         
         config()
-        //viewModelWeather = WeatherTableViewModel()
+        viewModelWeather = WeatherTableViewModel()
         setupView()
         
-       // self.tableView.reloadData()
+        self.tableView.reloadData()
     }
     
     
     private func config() {
 
-        
         currentDataLoader = NetworkWeatherManager()
-        currentDataLoader?.pullJsonData(url: currentDataLoader?.url, forecast: false) {
+        currentDataLoader?.fetchWeather(forRequestType: .currentWeather(city: "\(modelWeather!.cityName)")) {
             self.updateCurrentData()
         }
 
@@ -110,58 +109,30 @@ class WeatherViewController: UIViewController {
     
     func updateCurrentData() {
 
-        self.tempLabel.text = String(Int((currentDataLoader?.currentWeather?.main.temp)!) - 273) + "°"
-        self.tempMaxLabel.text = String(Int((currentDataLoader?.currentWeather?.main.temp_max)!) - 273) + "°"
-        self.tempMinLabel.text = String(Int((currentDataLoader?.currentWeather?.main.temp_min)!) - 273) + "°"
-        //self.tempLabel.text = String(Int((currentDataLoader?.currentWeather?.main.temp)!)) + "°"
+        self.tempLabel.text = "t = " +  String(Int((currentDataLoader?.currentWeather?.main.temp)!)) + "°"
+        self.tempMaxLabel.text = "tMax = " +  String(Int((currentDataLoader?.currentWeather?.main.temp_max)!)) + "°"
+        self.tempMinLabel.text = "tMin = " +  String(Int((currentDataLoader?.currentWeather?.main.temp_min)!)) + "°"
+        
         
         switch currentDataLoader?.currentWeather?.main.main ?? "Clear" {
             case "Clear":
-                self.imageWeatherView.image = UIImage(named: "forest_sunny")
+                self.imageWeatherView.image = UIImage(systemName: "sun.min.fill")
+            print("sunny")
             case "Clouds":
-                self.imageWeatherView.image = UIImage(named: "forest_cloudy")
+                self.imageWeatherView.image = UIImage(systemName: "cloud.fill")
+            print("cloud")
             case "Rainy":
-                self.imageWeatherView.image = UIImage(named: "forest_rainy")
+                self.imageWeatherView.image = UIImage(systemName: "cloud.rain.fill")
+            print("rain")
             default:
-                self.imageWeatherView.image = UIImage(named: "forest_sunny")
+                self.imageWeatherView.image = UIImage(systemName: "sun.min.fill")
     
         }
     }
     
-    /* private func config() {
-        
-        currentDataLoader = NetworkWeatherManager()
-        currentDataLoader?.pullJsonData(url: currentDataLoader?.url, forecast: false) {
-            self.updateCurrentData()
-        }
-
-        
-    }
-    
-    func updateCurrentData() {
-     
-        self.tempMaxLabel.text = "t Max " + String(Int((currentDataLoader!.currentWeather!.main.temp_max!))) + "°"
-        self.tempMinLabel.text = "t Min " + String(Int((currentDataLoader!.currentWeather!.main.temp_min!))) + "°"
-        self.tempLabel.text = "t " + String(Int((currentDataLoader!.currentWeather!.main.temp!))) + "°"
-        
-        switch currentDataLoader?.currentWeather?.main.main ?? "Clear" {
-            case "Clear":
-                self.imageWeatherView.image = UIImage(named: "sun.min.fill")
-            case "Clouds":
-                self.imageWeatherView.image = UIImage(named: "cloud.fill")
-             
-            case "Rainy":
-                self.imageWeatherView.image = UIImage(named: "cloud.rain.fill")
-
-            default:
-                self.imageWeatherView.image = UIImage(named: "sun.min.fill")
-        }
-        //tableView.reloadData()
-        
-    } */
     
     private func setupView() {
-       // self.view.addSubview(tableView)
+        self.view.addSubview(tableView)
         self.view.addSubview(nameLabel)
         self.view.addSubview(imageWeatherView)
     
@@ -197,12 +168,12 @@ class WeatherViewController: UIViewController {
             self.tempMaxLabel.widthAnchor.constraint(equalToConstant: 100),
             self.tempMaxLabel.heightAnchor.constraint(equalToConstant: 30),
             
-         /*   self.tableView.topAnchor.constraint(equalTo: self.tempMinLabel.bottomAnchor, constant: 15),
+            self.tableView.topAnchor.constraint(equalTo: self.tempMinLabel.bottomAnchor, constant: 15),
             self.tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor),
             self.tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor),
             //self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -5)
             //self.tableView.heightAnchor.constraint(equalToConstant: self.tableView.contentSize.height)
-            self.tableView.heightAnchor.constraint(equalToConstant: 400) */
+            self.tableView.heightAnchor.constraint(equalToConstant: 400)
         ].compactMap({ $0 }))
     }
        
@@ -210,7 +181,7 @@ class WeatherViewController: UIViewController {
     
 
 
-/*
+
 extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -232,5 +203,5 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(80)
     }
-} */
+}
 

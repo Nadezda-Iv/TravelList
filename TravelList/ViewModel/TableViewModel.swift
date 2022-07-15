@@ -13,7 +13,7 @@ class TableViewModel: TableViewViewModelType {
     
     var userRoute: [Route] = [
         Route(nameRoute: "London", nameCity: ["1", "2"], travelDates: Date()),
-        Route(nameRoute: "Moskoy", nameCity: ["3", "4"], travelDates: Date()),
+        Route(nameRoute: "Moscow", nameCity: ["3", "4"], travelDates: Date()),
         Route(nameRoute: "Sochi", nameCity: ["2", "56"], travelDates: Date())]
     //var routeSave: [RouteEntity] = []
 
