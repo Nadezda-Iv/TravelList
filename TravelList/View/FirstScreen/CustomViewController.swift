@@ -6,12 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
 class CustomViewController: UIViewController {
     
     var viewModel: TableViewViewModelType?
-    //var routeName: [RouteEntity] = []
-    
+    let empVM = CoreDataManagerViewModel()
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -51,11 +51,20 @@ class CustomViewController: UIViewController {
     }()
 
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        empVM.getEmp()
+        //self.tableView.reloadData()
+        print(self.empVM.empList.count)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = TableViewModel()
         setupView()
-        self.tableView.reloadData()
+      
     }
     
     
@@ -83,18 +92,31 @@ class CustomViewController: UIViewController {
         ].compactMap({ $0 }))
     }
     
-   
+    
     @objc func buttonAction(sender: UIButton!) {
-        let ac = UIAlertController(title: "Click on the button", message: "Click here.", preferredStyle: .alert)
-        ac.addTextField { action in }
+        let ac = UIAlertController(title: "Введите город и дату поездки", message: "", preferredStyle: .alert)
+        
         ac.addTextField { action in }
         
-        let buttonActionYes = UIAlertAction(title: "Save",
+      /*  let buttonActionYes = UIAlertAction(title: "Сохранить",
                                             style: .default,
                                             handler: {(action:UIAlertAction!) in
+       
+            let tf = ac.textFields?.first?.text ?? ""
+            self.empVM.addEmp(dates: Date.now, nameRoute: tf)
+            
             print("you pressed the button")
-        })
+            self.tableView.reloadData()
+            print(self.empVM.empList.count)
+        }) */
         
+    
+         let buttonActionYes = UIAlertAction(title: "Сохранить", style: .default) { action in
+         let tf = ac.textFields?.first?.text ?? ""
+         self.empVM.addEmp(dates: Date.now, nameRoute: tf)
+      
+     }
+
         let buttonActionNo = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
             print("did you press the button after all")
         }
@@ -103,26 +125,23 @@ class CustomViewController: UIViewController {
         ac.addAction(buttonActionNo)
         
         self.present(ac, animated: true)
-     
+        self.tableView.reloadData()
     }
-
-    
 }
 
 extension CustomViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.numberOfRows() ?? 0
+        
+        return empVM.empList.count
     }
   
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RouteTableViewCell", for: indexPath) as? RouteTableViewCell
-        
-        guard let tableViewCell = cell, let viewModel = viewModel else { return UITableViewCell() }
-        
-        let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
 
-        tableViewCell.viewModel = cellViewModel
-        return tableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RouteTableViewCell", for: indexPath) as! RouteTableViewCell
+        let emp = empVM.empList[indexPath.row]
+        cell.routeName.text = emp.nameRoute
+
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -141,5 +160,12 @@ extension CustomViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+       // guard let meal = user.meals?[indexPath.row] as? Meal, editingStyle == .delete else { return }
+        for emp in empVM.empList {
+            empVM.deleteEmp(empToDelete: emp)
+        }
+    }
     
 }
+

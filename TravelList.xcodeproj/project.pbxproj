@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A306FF22284F6AE7000EBF48 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306FF21284F6AE7000EBF48 /* WeatherViewController.swift */; };
 		A306FF24284F6CF3000EBF48 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306FF23284F6CF3000EBF48 /* WeatherTableViewCell.swift */; };
+		A33E6B872886B81500879D59 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33E6B862886B81500879D59 /* CoreDataManager.swift */; };
+		A33E6B892886C68100879D59 /* CoreDataManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33E6B882886C68100879D59 /* CoreDataManagerViewModel.swift */; };
 		A3792CEE281FE7DD00BB8ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3792CED281FE7DD00BB8ADD /* AppDelegate.swift */; };
 		A3792CF0281FE7DD00BB8ADD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3792CEF281FE7DD00BB8ADD /* SceneDelegate.swift */; };
 		A3792CF8281FE7DD00BB8ADD /* TravelList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A3792CF6281FE7DD00BB8ADD /* TravelList.xcdatamodeld */; };
@@ -69,6 +71,8 @@
 /* Begin PBXFileReference section */
 		A306FF21284F6AE7000EBF48 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		A306FF23284F6CF3000EBF48 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
+		A33E6B862886B81500879D59 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		A33E6B882886C68100879D59 /* CoreDataManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerViewModel.swift; sourceTree = "<group>"; };
 		A3792CEA281FE7DD00BB8ADD /* TravelList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3792CED281FE7DD00BB8ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3792CEF281FE7DD00BB8ADD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				A3F726522850C95700E7A907 /* NetworkManager.swift */,
+				A33E6B862886B81500879D59 /* CoreDataManager.swift */,
 				A3792D22281FF9DE00BB8ADD /* ModelRoute.swift */,
 				A39A8B9F2848C8A1001584D9 /* ModelPlanningRoute.swift */,
 				A3CE8A302861B91C00C05F07 /* WeatherData.swift */,
@@ -212,6 +217,7 @@
 				A38F429B283BBE98000A50B9 /* TableViewModel.swift */,
 				A3E89A39283CC38C006EB955 /* TableViewCellViewModel.swift */,
 				A3E89A3B283CD550006EB955 /* DetailRoutePlanningViewModelType.swift */,
+				A33E6B882886C68100879D59 /* CoreDataManagerViewModel.swift */,
 				A38C2B70284E060C00473A78 /* CollectionViewModel.swift */,
 				A38C2B6E284DE42600473A78 /* PlanningCollectionViewCellViewModel.swift */,
 				A397837C2865A4EA006B9A16 /* WeatherTableViewModel.swift */,
@@ -428,6 +434,7 @@
 				A3A85F4A28252E77002D91F8 /* CollectionViewCellViewModelType.swift in Sources */,
 				A306FF24284F6CF3000EBF48 /* WeatherTableViewCell.swift in Sources */,
 				A397837D2865A4EA006B9A16 /* WeatherTableViewModel.swift in Sources */,
+				A33E6B872886B81500879D59 /* CoreDataManager.swift in Sources */,
 				A38C2B6F284DE42600473A78 /* PlanningCollectionViewCellViewModel.swift in Sources */,
 				A38F4299283BB97B000A50B9 /* RoutePlanningViewController.swift in Sources */,
 				A3F7264C28507A4F00E7A907 /* ListOfPlacesTableViewCell.swift in Sources */,
@@ -435,6 +442,7 @@
 				A38C2B71284E060C00473A78 /* CollectionViewModel.swift in Sources */,
 				A3F7264A285079B700E7A907 /* ListOfPlacesViewController.swift in Sources */,
 				A3C8CE28284F862B000FA4C6 /* MapViewController.swift in Sources */,
+				A33E6B892886C68100879D59 /* CoreDataManagerViewModel.swift in Sources */,
 				A3BA59E328365EF600CED1BB /* RouteTableViewCell.swift in Sources */,
 				A3F726532850C95700E7A907 /* NetworkManager.swift in Sources */,
 				A3A85F4C28253406002D91F8 /* WeatherTableViewCellViewModelType.swift in Sources */,

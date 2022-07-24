@@ -9,14 +9,14 @@ import UIKit
 
 class RouteTableViewCell: UITableViewCell {
     
-    private var routeName: UILabel = {
+     var routeName: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    private var dates: UILabel = {
+     var dates: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)

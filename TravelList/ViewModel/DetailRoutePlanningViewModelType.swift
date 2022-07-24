@@ -9,15 +9,15 @@ import UIKit
 
 class DetailRoutePlanningViewModelType: ViewDetailType {
     
-    internal var namePage: Route //  изменить
+    internal var namePage: RouteEntity //  изменить
     
     var description: String {
-        return String(describing: "\(namePage.nameRoute)  c \(String(namePage.travelDates.description))")
+        return String(describing: "\(String(describing: namePage.nameRoute))  c \(String(namePage.dates!.description))")
     }
     
     var age: Box<String?> = Box(nil)
     
-    init(nameRoute: Route) {
+    init(nameRoute: RouteEntity) {
         self.namePage = nameRoute
     }
 

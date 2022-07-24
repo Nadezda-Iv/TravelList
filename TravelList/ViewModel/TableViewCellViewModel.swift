@@ -8,10 +8,12 @@
 import Foundation
 
 class TableViewCellViewModel: TableViewCellViewModelType {
-    private var modelRoute: Route
+    private var modelRoute: RouteEntity
+    
+    
     
     var routeName: String {
-        return modelRoute.nameRoute
+        return modelRoute.nameRoute ?? "1"
     }
     
     var dates: String {
@@ -19,7 +21,7 @@ class TableViewCellViewModel: TableViewCellViewModelType {
        // return String(describing: modelRoute.travelDates)
     }
     
-    init(route: Route) {
+    init(route: RouteEntity) {
         self.modelRoute = route
     }
     

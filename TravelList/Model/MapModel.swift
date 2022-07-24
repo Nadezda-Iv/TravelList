@@ -348,3 +348,43 @@ struct MapModel {
 
  tableViewCell.viewModel = cellViewModel
 */
+
+
+/*
+ 
+ 
+ 
+ //let myDatePicker: UIDatePicker = UIDatePicker() {
+ // myDatePicker.timeZone = .local
+ //   myDatePicker.preferredDatePickerStyle = .wheels
+ //   myDatePicker.frame = CGRect(x: 0, y: 15, width: 270, height: 200)//
+// }
+ 
+ private var myDatePicker: UIDatePicker = {
+     let myDatePicker = UIDatePicker()
+     myDatePicker.timeZone = .current
+     myDatePicker.preferredDatePickerStyle = .wheels
+     myDatePicker.frame = CGRect(x: 0, y: 15, width: 270, height: 200)
+     return myDatePicker
+ }()
+ 
+   /* let alertController = UIAlertController(title: "\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
+    alertController.view.addSubview(myDatePicker)
+    let selectAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
+        print("Selected Date: \(myDatePicker.date)")
+    })
+    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    alertController.addAction(selectAction)
+    alertController.addAction(cancelAction)
+    present(alertController, animated: true)
+  */
+ */
+
+/*
+ 
+// guard let tableViewCell = cell, let viewModel = viewModel else { return UITableViewCell() }
+ 
+// let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
+
+// tableViewCell.viewModel = cellViewModel
+ */

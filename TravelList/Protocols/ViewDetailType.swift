@@ -8,6 +8,6 @@
 import Foundation
 
 protocol ViewDetailType {
-    var namePage: Route {get}
+    var namePage: RouteEntity {get}
   
 }
