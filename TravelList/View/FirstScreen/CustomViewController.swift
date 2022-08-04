@@ -91,6 +91,7 @@ class CustomViewController: UIViewController {
          let buttonActionYes = UIAlertAction(title: "Сохранить", style: .default) { action in
          let tf = ac.textFields?.first?.text ?? ""
          self.empVM.addEmp(dates: Date.now, nameRoute: tf)
+         self.empVM.getEmp()
          self.tableView.reloadData()
      }
         let buttonActionNo = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
