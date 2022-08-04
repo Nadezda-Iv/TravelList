@@ -19,12 +19,15 @@ class TableViewModel: TableViewViewModelType {
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> TableViewCellViewModelType? {
         let profile = empVM.empList[indexPath.row]
+        print(profile)
         return TableViewCellViewModel(route: profile)
     }
     
     
     func viewModelForSelectedRow() -> DetailRoutePlanningViewModelType? {
        guard let selectedIndexPath = selectedIndexPath else { return nil }
+        let a = DetailRoutePlanningViewModelType(nameRoute: empVM.empList[selectedIndexPath.row])
+        print(a)
         return DetailRoutePlanningViewModelType(nameRoute: empVM.empList[selectedIndexPath.row])
     }
     

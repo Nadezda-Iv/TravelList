@@ -10,7 +10,6 @@ import CoreData
 
 class CustomViewController: UIViewController {
     
-    var viewModel: TableViewViewModelType?
     let empVM = CoreDataManagerViewModel()
     
     private lazy var nameLabel: UILabel = {
@@ -51,20 +50,10 @@ class CustomViewController: UIViewController {
     }()
 
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        empVM.getEmp()
-        //self.tableView.reloadData()
-        print(self.empVM.empList.count)
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = TableViewModel()
+        empVM.getEmp()
         setupView()
-      
     }
     
     
@@ -98,29 +87,15 @@ class CustomViewController: UIViewController {
         
         ac.addTextField { action in }
         
-      /*  let buttonActionYes = UIAlertAction(title: "Сохранить",
-                                            style: .default,
-                                            handler: {(action:UIAlertAction!) in
-       
-            let tf = ac.textFields?.first?.text ?? ""
-            self.empVM.addEmp(dates: Date.now, nameRoute: tf)
-            
-            print("you pressed the button")
-            self.tableView.reloadData()
-            print(self.empVM.empList.count)
-        }) */
-        
     
          let buttonActionYes = UIAlertAction(title: "Сохранить", style: .default) { action in
          let tf = ac.textFields?.first?.text ?? ""
          self.empVM.addEmp(dates: Date.now, nameRoute: tf)
-      
+         self.tableView.reloadData()
      }
-
         let buttonActionNo = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
             print("did you press the button after all")
         }
-        
         ac.addAction(buttonActionYes)
         ac.addAction(buttonActionNo)
         
@@ -131,7 +106,6 @@ class CustomViewController: UIViewController {
 
 extension CustomViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return empVM.empList.count
     }
   
@@ -140,16 +114,18 @@ extension CustomViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RouteTableViewCell", for: indexPath) as! RouteTableViewCell
         let emp = empVM.empList[indexPath.row]
         cell.routeName.text = emp.nameRoute
+        cell.dates.text = emp.dates?.description
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let viewModel = viewModel else { return }
+        guard let viewModelM = empVM.empList[indexPath.row] as? RouteEntity else { return }
         let vc = RoutePlanningViewController()
-        let viewmodeltext = PlaningRoute(cityName: viewModel.cellViewModel(forIndexPath: indexPath)?.routeName ?? "uiopo", nameCell: "", nameImageCell: "")
-        vc.modelPlanningRoute = viewmodeltext
+        let viewText = PlaningRoute(cityName: empVM.empList[indexPath.row].nameRoute ?? "city", nameCell: "", nameImageCell: "")
+       
+        vc.modelPlanningRoute = viewText
         navigationController?.pushViewController(vc, animated: true)
     
     tableView.reloadData()
@@ -161,10 +137,12 @@ extension CustomViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-       // guard let meal = user.meals?[indexPath.row] as? Meal, editingStyle == .delete else { return }
-        for emp in empVM.empList {
-            empVM.deleteEmp(empToDelete: emp)
-        }
+
+        guard let route = empVM.empList[indexPath.row] as? RouteEntity, editingStyle == .delete else { return }
+        empVM.deleteEmp(empToDelete: route)
+        self.empVM.empList.remove(at: indexPath.row)
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+ 
     }
     
 }
