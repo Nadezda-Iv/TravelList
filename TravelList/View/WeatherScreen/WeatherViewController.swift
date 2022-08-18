@@ -208,13 +208,6 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
             case "Clouds": cell?.weatherIconImageView.image = UIImage(systemName: "cloud")
             default: cell?.weatherIconImageView.image = UIImage(systemName: "cloud.rain")
         }
-        
-     /*   switch currentDataLoader?.currentWeather?.main.main ?? "Clear" {
-            case "Clear": cell?.backgroundColor = UIColor(red: 71/225, green: 171/225, blue: 47/225, alpha: 1)
-            case "Clouds": cell?.backgroundColor = UIColor(red: 84/225, green: 113/225, blue: 124/225, alpha: 1)
-            default: cell?.backgroundColor = UIColor(red: 87/225, green: 87/225, blue: 93/225, alpha: 1)
-        }  */
-        
         return cell!
         
     }

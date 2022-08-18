@@ -38,6 +38,8 @@ class RoutePlanningViewController: UIViewController {
         let photoCollection = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
         photoCollection.dataSource = self
         photoCollection.delegate = self
+        photoCollection.backgroundColor = UIColor.clear
+        
         photoCollection.register(PlanningCollectionViewCell.self, forCellWithReuseIdentifier: "PlanningCollectionViewCell")
         photoCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
         photoCollection.translatesAutoresizingMaskIntoConstraints = false

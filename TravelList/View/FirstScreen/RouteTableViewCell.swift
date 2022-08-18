@@ -47,7 +47,9 @@ class RouteTableViewCell: UITableViewCell {
         self.contentView.backgroundColor = .white
         self.contentView.addSubview(self.routeName)
         self.contentView.addSubview(self.dates)
-        
+        self.contentView.backgroundColor = beige
+        //self.contentView.layer.cornerRadius = 25
+       // self.contentView.layer.masksToBounds = true
         NSLayoutConstraint.activate([
             self.routeName.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
             self.routeName.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 15),

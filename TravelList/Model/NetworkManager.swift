@@ -46,7 +46,7 @@ public class NetworkWeatherManager {
     }
 
     func pullJsonData(url: URL?, forecast: Bool, completionHandler: @escaping () -> Void) {
-        let task = URLSession.shared.dataTask(with: url!) { [self] data, response, error in
+        let task = URLSession.shared.dataTask(with: url ?? URL(fileURLWithPath: "")){ [self] data, response, error in
             DispatchQueue.main.async {
                 if let error = error {
                     print("Error : \(error.localizedDescription)")
