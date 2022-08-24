@@ -7,10 +7,24 @@
 
 import UIKit
 import CoreData
+//import XCTest
 
 class CustomViewController: UIViewController {
     
     let empVM = CoreDataManagerViewModel()
+    
+    weak var textField_Date: UITextField! = {
+        let textField = UITextField()
+        textField.placeholder = "Date"
+        
+        return textField
+    }()
+    
+    var myDatePicker: UIDatePicker? = {
+        var datePicker = UIDatePicker()
+        datePicker.datePickerMode = UIDatePicker.Mode.date
+        return datePicker
+    }()
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -93,133 +107,63 @@ class CustomViewController: UIViewController {
         ].compactMap({ $0 }))
     }
     
+    // MARK:- Add new rout button
     
     @objc func buttonAction(sender: UIButton!) {
         let ac = UIAlertController(title: "Введите город и дату поездки на латиннице", message: "", preferredStyle: .alert)
-        let alertController = UIAlertController(title: "\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
-        let myDatePicker: UIDatePicker = UIDatePicker()
-        myDatePicker.timeZone = .current
-        myDatePicker.preferredDatePickerStyle = .wheels
-        myDatePicker.frame = CGRect(x: 0, y: 15, width: 270, height: 200)
         
         ac.addTextField { action in }
         ac.addTextField { (textField) in
-            //self.myDatePicker()
-            textField.inputView = myDatePicker
-            //textField.inputAccessoryView = self.toolBar
+            
+            let tollbar = UIToolbar()
+            tollbar.sizeToFit()
+            
+           // self.myDatePicker = UIDatePicker(frame:CGRect(x: 0, y: -100, width: self.view.frame.size.width, height: 300))
+            //self.myDatePicker?.backgroundColor = UIColor.white
+            self.myDatePicker?.datePickerMode = UIDatePicker.Mode.date
+            
+            let donebutton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneac))
+            tollbar.setItems([donebutton], animated: true)
+           
+            
+            textField.inputView = self.myDatePicker
+            textField.inputAccessoryView = tollbar
+            self.textField_Date = textField
         }
         
-        /*let myDatePicker: UIDatePicker = UIDatePicker()
-        myDatePicker.timeZone = .current
-        myDatePicker.preferredDatePickerStyle = .wheels
-        myDatePicker.frame = CGRect(x: 0, y: 15, width: 270, height: 200) */
         
-        //alertController.view.addSubview(myDatePicker)
-        
-        let selectAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
-             print("Selected Date: \(myDatePicker.date)")
-         })
-         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-         alertController.addAction(selectAction)
-         alertController.addAction(cancelAction)
-        
-        
-        /*
-         var datePicker:UIDatePicker = UIDatePicker()
-         let toolBar = UIToolbar()
-         
-         //1. Create the alert controller.
-         let alert = UIAlertController(title: "Some Title", message: "Enter a text", preferredStyle: .alert)
-
-         //2. Add the text field. You can configure it however you need.
-         alert.addTextField { (textField) in
-             self.doDatePicker()
-             textField.inputView = self.datePicker
-             textField.inputAccessoryView = self.toolBar
-         }
-
-         // 3. Grab the value from the text field, and print it when the user clicks OK.
-         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-             if textField?.text != ""{
-                 print("Text field: \(textField?.text!)")
-             }
-         }))
-
-         // 4. Present the alert.
-         self.present(alert, animated: true, completion: nil)
-         
-         
-         func doDatePicker(){
-             // DatePicker
-           // datePicker = UIDatePicker()
-
-             self.datePicker = UIDatePicker(frame:CGRect(x: 0, y: self.view.frame.size.height - 220, width:self.view.frame.size.width, height: 216))
-             self.datePicker.backgroundColor = UIColor.white
-             datePicker.datePickerMode = .date
-
-             // ToolBar
-
-             toolBar.barStyle = .default
-             toolBar.isTranslucent = true
-             toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
-             toolBar.sizeToFit()
-
-             // Adding Button ToolBar
-             let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(HomeNewVC.doneClick))
-             let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-             let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(HomeNewVC.cancelClick))
-             toolBar.setItems([cancelButton, spaceButton, doneButton], animated: true)
-             toolBar.isUserInteractionEnabled = true
-
-             self.toolBar.isHidden = false
-
-         }
-
-
-         @objc func doneClick() {
-             let dateFormatter1 = DateFormatter()
-             dateFormatter1.dateStyle = .medium
-             dateFormatter1.timeStyle = .none
-
-             datePicker.isHidden = true
-             self.toolBar.isHidden = true
-         }
-
-         @objc func cancelClick() {
-             datePicker.isHidden = true
-             self.toolBar.isHidden = true
-         }
-         */
         
         let buttonActionYes = UIAlertAction(title: "Сохранить", style: .default) { action in
             let tf = ac.textFields?.first?.text ?? ""
-            let tfDate = ac.textFields?[1]
-            let todaysDate = Date()
-            let datePicker = UIDatePicker()
-            //let dateString = dateFormatter.string(from: todaysDate)
+
+            let dateQ = self.myDatePicker!.date
+  
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-            let strDate = dateFormatter.string(from: datePicker.date)
-            tfDate?.text = strDate
-            
-            
-            //tfDate?.text = dateString
-            self.empVM.addEmp(dates: todaysDate, nameRoute: tf)
+            self.empVM.addEmp(dates: dateQ, nameRoute: tf)
             self.empVM.getEmp()
             self.tableView.reloadData()
         }
+        
         let buttonActionNo = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
             print("did you press the button after all")
         }
+       
         ac.addAction(buttonActionYes)
         ac.addAction(buttonActionNo)
         
-        self.present(ac,  animated: true)
-        self.present(alertController, animated: true)
-        
+        self.present(ac, animated: true)
         self.tableView.reloadData()
+    }
+     
+     // MARK:- Button Done and Cancel
+
+    @objc func doneac() {
+        self.myDatePicker?.datePickerMode = .dateAndTime
+        let dateForm = self.myDatePicker!.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        textField_Date.text = dateFormatter.string(from: dateForm)
+        self.view.endEditing(true)
     }
 }
 
@@ -241,7 +185,7 @@ extension CustomViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let viewModelM = empVM.empList[indexPath.row] as? RouteEntity else { return }
+        guard empVM.empList[indexPath.row] is RouteEntity else { return }
         let vc = RoutePlanningViewController()
         let viewText = PlaningRoute(cityName: empVM.empList[indexPath.row].nameRoute ?? "city", nameCell: "", nameImageCell: "")
        

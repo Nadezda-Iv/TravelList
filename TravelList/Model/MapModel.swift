@@ -388,3 +388,122 @@ struct MapModel {
 
 // tableViewCell.viewModel = cellViewModel
  */
+
+
+
+/*
+ //self.textFieldDidBeginEditing(textField)
+ //textField = self.textField_Date
+ 
+ //self.textField_Date.inputView = self.myDatePicker
+ //textField.text = self.myDatePicker.largeContentTitle
+ //self.pickUpDate(textField: self.textField_Date)
+ */
+
+
+/*
+ ac.addTextField { action in }
+ ac.addTextField { (textField) in
+     textField.placeholder = "Date"
+     textField.inputView = self.myDatePicker
+
+     
+      // ToolBar
+      let toolBar = UIToolbar()
+      toolBar.barStyle = .default
+      toolBar.isTranslucent = true
+      toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
+      toolBar.sizeToFit()
+      
+      // Adding Button ToolBar
+     let doneButton = UIBarButtonItem(title: "Готово", style: .plain, target: self,  action: #selector(self.doneClick) )
+      let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+     let cancelButton = UIBarButtonItem(title: "Отмена", style: .plain, target: self, action: #selector(self.cancelClick))
+
+      toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+      toolBar.isUserInteractionEnabled = true
+     self.textField_Date?.inputAccessoryView = toolBar
+    
+ }
+
+ let buttonActionYes = UIAlertAction(title: "Сохранить", style: .default) { action in
+     let tf = ac.textFields?.first?.text ?? ""
+     let tfDate = ac.textFields?[1]
+     let todaysDate = Date()
+
+     let dateFormatter = DateFormatter()
+     dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+     let strDate = dateFormatter.string(from: self.myDatePicker!.date)
+     tfDate?.text = strDate
+     
+     self.empVM.addEmp(dates: todaysDate, nameRoute: tf)
+     self.empVM.getEmp()
+     self.tableView.reloadData()
+ }
+ let buttonActionNo = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
+     print("did you press the button after all")
+ }
+ 
+ ac.addAction(buttonActionYes)
+ ac.addAction(buttonActionNo)
+ 
+ self.present(ac, animated: true)
+ self.tableView.reloadData()
+}
+
+// MARK:- Button Done and Cancel
+@objc func doneClick() {
+ print("done")
+  let dateFormatter1 = DateFormatter()
+  dateFormatter1.dateStyle = .medium
+  dateFormatter1.timeStyle = .none
+ print("font")
+ self.textField_Date?.text = dateFormatter1.string(from: self.myDatePicker!.date)
+ print("ad")
+ self.textField_Date?.resignFirstResponder()
+}
+@objc func cancelClick(textField : UITextField) {
+ self.textField_Date?.resignFirstResponder()
+}
+ */
+/*
+ let buttonActionAddDate = UIAlertAction(title: "Add date", style: .default) { (action:UIAlertAction!) in
+     
+     // DatePicker
+     self.myDatePicker = UIDatePicker(frame:CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 216))
+     self.myDatePicker?.backgroundColor = UIColor.white
+     self.myDatePicker?.datePickerMode = UIDatePicker.Mode.date
+     //textField.inputView = self.datePicker
+     
+     // ToolBar
+     let toolBar = UIToolbar()
+     toolBar.barStyle = .default
+     toolBar.isTranslucent = true
+     toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
+     toolBar.sizeToFit()
+     
+     // Adding Button ToolBar
+     let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.doneClick))
+     let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+     let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelClick))
+     toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+     toolBar.isUserInteractionEnabled = true
+     //textField.inputAccessoryView = toolBar
+     
+ }
+ */
+/*
+ @objc func doneClick() {
+
+      let dateFormatter1 = DateFormatter()
+      dateFormatter1.dateStyle = .medium
+      dateFormatter1.timeStyle = .none
+
+     self.textField_Date?.text = dateFormatter1.string(from: self.myDatePicker!.date)
+
+     self.textField_Date?.resignFirstResponder()
+  }
+ @objc func cancelClick(textField : UITextField) {
+     self.textField_Date?.resignFirstResponder()
+  }
+ */

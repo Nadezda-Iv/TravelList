@@ -17,7 +17,9 @@ class TableViewCellViewModel: TableViewCellViewModelType {
     }
     
     var dates: String {
-        return   modelRoute.dates?.description ?? "05"
+        let dateLabel = modelRoute.dates?.formatted()
+        // modelRoute.dates?.description
+        return  dateLabel  ?? "05"
        // return String(describing: modelRoute.travelDates)
     }
     
