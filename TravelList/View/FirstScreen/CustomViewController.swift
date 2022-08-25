@@ -116,9 +116,6 @@ class CustomViewController: UIViewController {
             
             let tollbar = UIToolbar()
             tollbar.sizeToFit()
-            
-           // self.myDatePicker = UIDatePicker(frame:CGRect(x: 0, y: -100, width: self.view.frame.size.width, height: 300))
-            //self.myDatePicker?.backgroundColor = UIColor.white
             self.myDatePicker?.datePickerMode = UIDatePicker.Mode.date
             
             let donebutton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneac))

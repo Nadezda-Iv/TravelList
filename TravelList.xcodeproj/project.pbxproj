@@ -41,9 +41,7 @@
 		A3C8CE2A284F866F000FA4C6 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8CE29284F866F000FA4C6 /* MapModel.swift */; };
 		A3CE8A312861B91C00C05F07 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CE8A302861B91C00C05F07 /* WeatherData.swift */; };
 		A3E40F9328229A3700572956 /* TableViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E40F9228229A3700572956 /* TableViewViewModelType.swift */; };
-		A3E40F9628229ADD00572956 /* TableViewCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E40F9528229ADD00572956 /* TableViewCellViewModelType.swift */; };
 		A3E40F9A28229B7200572956 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E40F9928229B7200572956 /* Box.swift */; };
-		A3E89A3A283CC38C006EB955 /* TableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E89A39283CC38C006EB955 /* TableViewCellViewModel.swift */; };
 		A3E89A3C283CD550006EB955 /* DetailRoutePlanningViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E89A3B283CD550006EB955 /* DetailRoutePlanningViewModelType.swift */; };
 		A3F7264A285079B700E7A907 /* ListOfPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F72649285079B700E7A907 /* ListOfPlacesViewController.swift */; };
 		A3F7264C28507A4F00E7A907 /* ListOfPlacesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F7264B28507A4F00E7A907 /* ListOfPlacesTableViewCell.swift */; };
@@ -108,9 +106,7 @@
 		A3C8CE29284F866F000FA4C6 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		A3CE8A302861B91C00C05F07 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		A3E40F9228229A3700572956 /* TableViewViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewModelType.swift; sourceTree = "<group>"; };
-		A3E40F9528229ADD00572956 /* TableViewCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModelType.swift; sourceTree = "<group>"; };
 		A3E40F9928229B7200572956 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		A3E89A39283CC38C006EB955 /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModel.swift; sourceTree = "<group>"; };
 		A3E89A3B283CD550006EB955 /* DetailRoutePlanningViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRoutePlanningViewModelType.swift; sourceTree = "<group>"; };
 		A3F72649285079B700E7A907 /* ListOfPlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfPlacesViewController.swift; sourceTree = "<group>"; };
 		A3F7264B28507A4F00E7A907 /* ListOfPlacesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfPlacesTableViewCell.swift; sourceTree = "<group>"; };
@@ -218,7 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				A38F429B283BBE98000A50B9 /* TableViewModel.swift */,
-				A3E89A39283CC38C006EB955 /* TableViewCellViewModel.swift */,
 				A3E89A3B283CD550006EB955 /* DetailRoutePlanningViewModelType.swift */,
 				A33E6B882886C68100879D59 /* CoreDataManagerViewModel.swift */,
 				A38C2B70284E060C00473A78 /* CollectionViewModel.swift */,
@@ -260,7 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				A3E40F9228229A3700572956 /* TableViewViewModelType.swift */,
-				A3E40F9528229ADD00572956 /* TableViewCellViewModelType.swift */,
 				A397837A2865A153006B9A16 /* ViewDetailType.swift */,
 				A3A85F4728252AED002D91F8 /* CollectionViewModelType.swift */,
 				A3A85F4928252E77002D91F8 /* CollectionViewCellViewModelType.swift */,
@@ -450,13 +444,11 @@
 				A3F726532850C95700E7A907 /* NetworkManager.swift in Sources */,
 				A3A85F4C28253406002D91F8 /* WeatherTableViewCellViewModelType.swift in Sources */,
 				A3792D23281FF9DE00BB8ADD /* ModelRoute.swift in Sources */,
-				A3E89A3A283CC38C006EB955 /* TableViewCellViewModel.swift in Sources */,
 				A38F429C283BBE98000A50B9 /* TableViewModel.swift in Sources */,
 				A3792D21281FEE5C00BB8ADD /* CustomViewController.swift in Sources */,
 				A3792CF8281FE7DD00BB8ADD /* TravelList.xcdatamodeld in Sources */,
 				A3792CEE281FE7DD00BB8ADD /* AppDelegate.swift in Sources */,
 				A397837B2865A153006B9A16 /* ViewDetailType.swift in Sources */,
-				A3E40F9628229ADD00572956 /* TableViewCellViewModelType.swift in Sources */,
 				A39A8BA22848EC31001584D9 /* PlanningCollectionViewCell.swift in Sources */,
 				A3C253E6289EF43A00DE3355 /* Сonstants.swift in Sources */,
 				A3F7264F28507C3900E7A907 /* CheckListViewController.swift in Sources */,

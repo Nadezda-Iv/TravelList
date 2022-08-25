@@ -24,16 +24,6 @@ class RouteTableViewCell: UITableViewCell {
         return label
     }()
     
-   /*weak var viewModel: TableViewCellViewModelType? {
-        willSet(viewModel) {
-            guard let viewModel = viewModel else { return }
-            routeName.text = viewModel.routeName
-            dates.text = viewModel.dates
-        }
-    } */
-    
-    
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupView()
@@ -48,8 +38,7 @@ class RouteTableViewCell: UITableViewCell {
         self.contentView.addSubview(self.routeName)
         self.contentView.addSubview(self.dates)
         self.contentView.backgroundColor = beige
-        //self.contentView.layer.cornerRadius = 25
-       // self.contentView.layer.masksToBounds = true
+
         NSLayoutConstraint.activate([
             self.routeName.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
             self.routeName.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 15),
