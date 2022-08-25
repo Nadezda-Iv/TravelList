@@ -115,9 +115,10 @@ class CustomViewController: UIViewController {
         ac.addTextField { (textField) in
             
             let tollbar = UIToolbar()
+            tollbar.frame = CGRect(x: 0, y: -30, width: 300, height: 350)
             tollbar.sizeToFit()
             self.myDatePicker?.datePickerMode = UIDatePicker.Mode.date
-            
+            self.myDatePicker?.frame = CGRect(x: 0, y: 0, width: 200, height: 150)
             let donebutton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneac))
             tollbar.setItems([donebutton], animated: true)
            
@@ -125,13 +126,6 @@ class CustomViewController: UIViewController {
             textField.inputView = self.myDatePicker
             textField.inputAccessoryView = tollbar
             self.textField_Date = textField
-          /*  NSLayoutConstraint.activate([
-                tollbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
-                tollbar.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor),
-                tollbar.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor),
-                tollbar.heightAnchor.constraint(equalToConstant: 350)
-            ].compactMap({ $0 })) */
-            
         }
         
         
