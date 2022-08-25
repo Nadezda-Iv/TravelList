@@ -29,7 +29,7 @@ class CustomViewController: UIViewController {
         let label = UILabel()
         label.text = "Мои маршруты"
         label.textColor = .black
-        label.backgroundColor = .systemFill
+        label.backgroundColor = beige
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 25
         label.textAlignment = .center
@@ -59,14 +59,14 @@ class CustomViewController: UIViewController {
         let button = UIButton()
         button.layer.cornerRadius = 20
         button.clipsToBounds = true
-        button.backgroundColor = .systemFill
+        button.backgroundColor = beige
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         let customButtonTitle = NSMutableAttributedString(string: "+", attributes: [
             NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 50),
             NSAttributedString.Key.backgroundColor: UIColor.clear,
-            NSAttributedString.Key.foregroundColor: UIColor.black
+            NSAttributedString.Key.foregroundColor: UIColor.systemBlue
         ])
         button.setAttributedTitle(customButtonTitle, for: .normal)
         return button
@@ -125,6 +125,13 @@ class CustomViewController: UIViewController {
             textField.inputView = self.myDatePicker
             textField.inputAccessoryView = tollbar
             self.textField_Date = textField
+          /*  NSLayoutConstraint.activate([
+                tollbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
+                tollbar.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor),
+                tollbar.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor),
+                tollbar.heightAnchor.constraint(equalToConstant: 350)
+            ].compactMap({ $0 })) */
+            
         }
         
         

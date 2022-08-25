@@ -17,7 +17,6 @@ class WeatherViewController: UIViewController {
         let label = UILabel()
         label.text = "Погода в \(modelWeather!.cityName)"
         label.textColor = .black
-        label.backgroundColor = .systemGray2
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 25
         label.textAlignment = .center
@@ -28,7 +27,6 @@ class WeatherViewController: UIViewController {
     private lazy var tempMinLabel: UILabel! = {
         let label = UILabel()
         label.textColor = .black
-        label.backgroundColor = .white
         label.layer.masksToBounds = true
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
@@ -39,7 +37,6 @@ class WeatherViewController: UIViewController {
     private lazy var tempLabel: UILabel! = {
         let label = UILabel()
         label.textColor = .black
-        label.backgroundColor = .white
         label.layer.masksToBounds = true
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
@@ -50,7 +47,6 @@ class WeatherViewController: UIViewController {
     private lazy var tempMaxLabel: UILabel! = {
         let label = UILabel()
         label.textColor = .black
-        label.backgroundColor = .white
         label.layer.masksToBounds = true
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
@@ -61,11 +57,7 @@ class WeatherViewController: UIViewController {
  
     private var imageWeatherView: UIImageView! = {
         let imageView = UIImageView()
-       // imageView.backgroundColor = .systemGray2
         imageView.frame.size = CGSize(width: 90, height: 80)
-        //imageView.clipsToBounds = true
-       // imageView.contentMode = .scaleToFill
-        //imageView.layer.borderColor = UIColor.white.cgColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -86,7 +78,8 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.contentMode = UIView.ContentMode.scaleAspectFill
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "fon-pogoda.png")!)
+        self.view.backgroundColor = beige
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "fon-pogoda.png")!)
         
         config()
         viewModelWeather = WeatherTableViewModel()

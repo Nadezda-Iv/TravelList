@@ -58,7 +58,8 @@ class RoutePlanningViewController: UIViewController {
         
         self.view.addSubview(self.nameRouteLabel)
         self.view.addSubview(self.planningCollectionView)
-        self.planningCollectionView.backgroundColor = .systemGray6
+        self.view.backgroundColor = beige
+        self.planningCollectionView.backgroundColor = beige
         NSLayoutConstraint.activate([
             self.nameRouteLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 25),
             self.nameRouteLabel.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 35),

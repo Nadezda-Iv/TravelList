@@ -14,11 +14,7 @@ class WeatherTableViewCell: UITableViewCell {
     
      var weatherIconImageView: UIImageView = {
         let imageView = UIImageView()
-        //imageView.layer.borderWidth = 3
         imageView.frame.size = CGSize(width: 80, height: 80)
-        //imageView.clipsToBounds = true
-        //imageView.contentMode = .scaleToFill
-        //imageView.layer.borderColor = UIColor.white.cgColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -59,8 +55,8 @@ class WeatherTableViewCell: UITableViewCell {
     }
     
     private func setupView() {
-        let sunnyColor = UIColor(red: 136/225, green: 217/225, blue: 235/225, alpha: 1)
-        self.contentView.backgroundColor = sunnyColor
+        //let sunnyColor = UIColor(red: 136/225, green: 217/225, blue: 235/225, alpha: 1)
+        self.contentView.backgroundColor = beige
         self.contentView.addSubview(self.temperatureLabel)
         self.contentView.addSubview(self.weatherIconImageView)
         self.contentView.addSubview(self.dateLabel)
