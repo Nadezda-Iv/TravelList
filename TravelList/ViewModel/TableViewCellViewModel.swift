@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+/*
 class TableViewCellViewModel: TableViewCellViewModelType {
     private var modelRoute: RouteEntity
     
@@ -17,9 +17,14 @@ class TableViewCellViewModel: TableViewCellViewModelType {
     }
     
     var dates: String {
-        let dateLabel = modelRoute.dates?.formatted()
+        //let dateForm = self.myDatePicker!.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        let dateLabel = dateFormatter.string(from: modelRoute.dates!)
+        print(dateLabel)
+        //let dateLabel = modelRoute.dates?.formatted()
         // modelRoute.dates?.description
-        return  dateLabel  ?? "05"
+        return  dateLabel
        // return String(describing: modelRoute.travelDates)
     }
     
@@ -29,4 +34,4 @@ class TableViewCellViewModel: TableViewCellViewModelType {
     
 
     
-}
+} */

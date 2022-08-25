@@ -17,11 +17,11 @@ class TableViewModel: TableViewViewModelType {
         return  empVM.empList.count 
     }
     
-    func cellViewModel(forIndexPath indexPath: IndexPath) -> TableViewCellViewModelType? {
+   /* func cellViewModel(forIndexPath indexPath: IndexPath) -> TableViewCellViewModelType? {
         let profile = empVM.empList[indexPath.row]
         print(profile)
         return TableViewCellViewModel(route: profile)
-    }
+    } */
     
     
     func viewModelForSelectedRow() -> DetailRoutePlanningViewModelType? {

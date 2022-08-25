@@ -24,13 +24,13 @@ class RouteTableViewCell: UITableViewCell {
         return label
     }()
     
-    weak var viewModel: TableViewCellViewModelType? {
+   /*weak var viewModel: TableViewCellViewModelType? {
         willSet(viewModel) {
             guard let viewModel = viewModel else { return }
             routeName.text = viewModel.routeName
             dates.text = viewModel.dates
         }
-    }
+    } */
     
     
     

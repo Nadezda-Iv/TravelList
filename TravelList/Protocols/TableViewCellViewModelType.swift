@@ -6,8 +6,9 @@
 //
 
 import Foundation
-
+/*
 protocol TableViewCellViewModelType: AnyObject {
     var routeName: String { get }
     var dates: String { get }
 }
+*/

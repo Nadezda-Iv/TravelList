@@ -7,7 +7,6 @@
 
 import UIKit
 import CoreData
-//import XCTest
 
 class CustomViewController: UIViewController {
     
@@ -177,7 +176,10 @@ extension CustomViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RouteTableViewCell", for: indexPath) as! RouteTableViewCell
         let emp = empVM.empList[indexPath.row]
         cell.routeName.text = emp.nameRoute
-        cell.dates.text = emp.dates?.description
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = " dd. MM. yyyy "
+        let dateLabel = dateFormatter.string(from: emp.dates!)
+        cell.dates.text = dateLabel
 
 
         return cell
