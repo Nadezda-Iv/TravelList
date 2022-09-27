@@ -101,20 +101,14 @@ extension RoutePlanningViewController: UICollectionViewDelegate, UICollectionVie
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        print(indexPath)
-
-        
-        
-       // let vc: UIViewController
         
         switch indexPath {
         case [0,0] : let vc = WeatherViewController();
             let viewText = PlaningRoute(cityName: modelPlanningRoute?.cityName ?? "4567890", nameCell: "", nameImageCell: "");
-            vc.modelWeather = viewText; navigationController?.pushViewController(vc, animated: true); print(viewText.cityName)// white
-        case [0,1] : let vc = CheckListViewController() // pink
-        case [0,2] : let vc = ListOfPlacesViewController() // green
-        case [0,3] : let vc = MapViewController() // yellow
+            vc.modelWeather = viewText; navigationController?.pushViewController(vc, animated: true);
+        case [0,1] : let vc = CheckListViewController()
+        case [0,2] : let vc = ListOfPlacesViewController()
+        case [0,3] : let vc = MapViewController()
 
         default:
            let vc = WeatherViewController()

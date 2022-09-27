@@ -21,7 +21,6 @@ class TableViewModel: TableViewViewModelType {
     func viewModelForSelectedRow() -> DetailRoutePlanningViewModelType? {
        guard let selectedIndexPath = selectedIndexPath else { return nil }
         let a = DetailRoutePlanningViewModelType(nameRoute: empVM.empList[selectedIndexPath.row])
-        print(a)
         return DetailRoutePlanningViewModelType(nameRoute: empVM.empList[selectedIndexPath.row])
     }
     

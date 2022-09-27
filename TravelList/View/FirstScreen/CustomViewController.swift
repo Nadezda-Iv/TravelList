@@ -165,6 +165,11 @@ class CustomViewController: UIViewController {
 }
 
 extension CustomViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Город и дата поездки"
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return empVM.empList.count
     }
