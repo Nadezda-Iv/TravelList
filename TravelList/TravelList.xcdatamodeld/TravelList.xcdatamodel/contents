@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="RouteEntity" representedClassName="RouteEntity" syncable="YES" codeGenerationType="class">
+    <entity name="RouteEntity" representedClassName="RouteEntity" syncable="YES">
         <attribute name="dates" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="nameRoute" optional="YES" attributeType="String"/>
+        <relationship name="task" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Tasks" inverseName="route" inverseEntity="Tasks"/>
+    </entity>
+    <entity name="Tasks" representedClassName="Tasks" syncable="YES">
+        <attribute name="task" optional="YES" attributeType="String"/>
+        <relationship name="route" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RouteEntity" inverseName="task" inverseEntity="RouteEntity"/>
     </entity>
     <elements>
-        <element name="RouteEntity" positionX="-63" positionY="-18" width="128" height="59"/>
+        <element name="RouteEntity" positionX="139.7088012695312" positionY="-404.1439208984375" width="128" height="88"/>
+        <element name="Tasks" positionX="-96.6453857421875" positionY="-527.2487487792969" width="128" height="73"/>
     </elements>
 </model>

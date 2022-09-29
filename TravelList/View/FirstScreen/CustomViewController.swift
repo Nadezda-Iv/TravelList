@@ -10,7 +10,7 @@ import CoreData
 
 class CustomViewController: UIViewController {
     
-    let empVM = CoreDataManagerViewModel()
+    let routeVM = CoreDataManagerViewModel()
     
     weak var textField_Date: UITextField! = {
         let textField = UITextField()
@@ -75,7 +75,7 @@ class CustomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        empVM.getEmp()
+        routeVM.getRoute()
         setupView()
     }
     
@@ -136,8 +136,8 @@ class CustomViewController: UIViewController {
             let dateQ = self.myDatePicker!.date
   
             
-            self.empVM.addEmp(dates: dateQ, nameRoute: tf)
-            self.empVM.getEmp()
+            self.routeVM.addRoute(dates: dateQ, nameRoute: tf)
+            self.routeVM.getRoute()
             self.tableView.reloadData()
         }
         
@@ -171,17 +171,17 @@ extension CustomViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return empVM.empList.count
+        return routeVM.routeList.count
     }
   
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "RouteTableViewCell", for: indexPath) as! RouteTableViewCell
-        let emp = empVM.empList[indexPath.row]
-        cell.routeName.text = emp.nameRoute
+        let route = routeVM.routeList[indexPath.row]
+        cell.routeName.text = route.nameRoute
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = " dd. MM. yyyy "
-        let dateLabel = dateFormatter.string(from: emp.dates!)
+        let dateLabel = dateFormatter.string(from: route.dates!)
         cell.dates.text = dateLabel
 
 
@@ -190,9 +190,9 @@ extension CustomViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard empVM.empList[indexPath.row] is RouteEntity else { return }
+        guard routeVM.routeList[indexPath.row] is RouteEntity else { return }
         let vc = RoutePlanningViewController()
-        let viewText = PlaningRoute(cityName: empVM.empList[indexPath.row].nameRoute ?? "city", nameCell: "", nameImageCell: "")
+        let viewText = PlaningRoute(cityName: routeVM.routeList[indexPath.row].nameRoute ?? "city", nameCell: "", nameImageCell: "")
        
         vc.modelPlanningRoute = viewText
         navigationController?.pushViewController(vc, animated: true)
@@ -207,9 +207,9 @@ extension CustomViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
-        guard let route = empVM.empList[indexPath.row] as? RouteEntity, editingStyle == .delete else { return }
-        empVM.deleteEmp(empToDelete: route)
-        self.empVM.empList.remove(at: indexPath.row)
+        guard let route = routeVM.routeList[indexPath.row] as? RouteEntity, editingStyle == .delete else { return }
+        routeVM.deleteRoute(routeToDelete: route)
+        self.routeVM.routeList.remove(at: indexPath.row)
         self.tableView.deleteRows(at: [indexPath], with: .automatic)
  
     }

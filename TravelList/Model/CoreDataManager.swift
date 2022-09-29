@@ -13,13 +13,13 @@ public class CoreDataManager{
      
      let mContext = (UIApplication.shared.delegate as!  AppDelegate).persistentContainer.viewContext
      
-     func addEmployee(dates: Date, nameRoute: String){
+     func addRoute(dates: Date, nameRoute: String){
          
          
-         let emp = RouteEntity(context: mContext)
+         let newRoute = RouteEntity(context: mContext)
          
-         emp.dates = dates
-         emp.nameRoute = nameRoute
+         newRoute.dates = dates
+         newRoute.nameRoute = nameRoute
          
          do {
              try mContext.save() // insertion happeing
@@ -27,18 +27,18 @@ public class CoreDataManager{
              print("Emp added..")
          }catch {
              print("Unable to add employee: \(error.localizedDescription)")
-             mContext.delete(emp)
+             mContext.delete(newRoute)
          }
      }
      
     
-     func getAllEmployees() -> [RouteEntity] {
+     func getAllRoute() -> [RouteEntity] {
          
          let fReq : NSFetchRequest<RouteEntity> = RouteEntity.fetchRequest()
          
          do {
-             let empList = try mContext.fetch(fReq)
-             return empList
+             let routeList = try mContext.fetch(fReq)
+             return routeList
              
          }catch {
              print("Could not query: \(error.localizedDescription)")
@@ -46,26 +46,26 @@ public class CoreDataManager{
          return []
      }
      
-     func deleteEmp(emp: RouteEntity){
+     func deleteRoute(route: RouteEntity){
          
-         mContext.delete(emp)
+         mContext.delete(route)
          do {
              try mContext.save()
-             print("Deleted \(emp.nameRoute ?? "" )")
+             print("Deleted \(route.nameRoute ?? "" )")
          }catch {
-             print("Could not delete \(emp.nameRoute ?? "")")
+             print("Could not delete \(route.nameRoute ?? "")")
          }
      }
      
-     func getEmpSortByName() -> [RouteEntity] {
+     func getRouteSortByName() -> [RouteEntity] {
          let fReq : NSFetchRequest<RouteEntity> = RouteEntity.fetchRequest()
          
          let nameSortDes = NSSortDescriptor(key: "nameRoute", ascending: true)
          
          fReq.sortDescriptors = [nameSortDes]
          do {
-             let emps = try mContext.fetch(fReq)
-             return emps
+             let routes = try mContext.fetch(fReq)
+             return routes
          }catch {
              print("getEmpSortByName: Could not fetch ")
          }
