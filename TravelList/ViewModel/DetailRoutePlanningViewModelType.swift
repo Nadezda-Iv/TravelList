@@ -15,8 +15,6 @@ class DetailRoutePlanningViewModelType: ViewDetailType {
         return String(describing: "\(String(describing: namePage.nameRoute))  c \(String(namePage.dates!.description))")
     }
     
-    var age: Box<String?> = Box(nil)
-    
     init(nameRoute: RouteEntity) {
         self.namePage = nameRoute
     }

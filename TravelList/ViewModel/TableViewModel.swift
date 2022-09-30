@@ -11,17 +11,17 @@ class TableViewModel: TableViewViewModelType {
     
     private var selectedIndexPath: IndexPath?
  
-    let empVM = CoreDataManagerViewModel()
+    let routeVM = CoreDataManagerViewModel()
     
     func numberOfRows() -> Int {
-        return  empVM.empList.count 
+        return  routeVM.routeList.count
     }
     
     
     func viewModelForSelectedRow() -> DetailRoutePlanningViewModelType? {
        guard let selectedIndexPath = selectedIndexPath else { return nil }
-        let a = DetailRoutePlanningViewModelType(nameRoute: empVM.empList[selectedIndexPath.row])
-        return DetailRoutePlanningViewModelType(nameRoute: empVM.empList[selectedIndexPath.row])
+        let a = DetailRoutePlanningViewModelType(nameRoute: routeVM.routeList[selectedIndexPath.row])
+        return DetailRoutePlanningViewModelType(nameRoute: routeVM.routeList[selectedIndexPath.row])
     }
     
     
